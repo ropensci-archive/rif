@@ -1,0 +1,15 @@
+Package: rif
+Title: Client for Neuroscience Information Framework APIs
+Description: Client for Neuroscience Information Framework APIs.
+Version: 0.0.1.99
+Date: 2015-02-08
+License: MIT + file LICENSE
+Authors@R: person("Scott", "Chamberlain", role = c("aut", "cre"), email =
+    "myrmecocystus@gmail.com")
+URL: https://github.com/ropensci/rif
+BugReports: https://github.com/ropensci/rif/issues
+Imports:
+    jsonlite,
+    httr
+Suggests:
+    roxygen2
