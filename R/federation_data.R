@@ -1,6 +1,9 @@
 #' Federation data
 #'
 #' @export
+#' @import dplyr
+#'
+#' @param id (character) A dataset id
 #' @param strict (logical) Only consider more relevant columns. Default: \code{FALSE}
 #' @param subclassQuery	(character) An known ID to query with subclass axiom entailment (include all
 #' subclasses in the search). This can be combined with the "query" parameter.

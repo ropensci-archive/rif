@@ -13,6 +13,8 @@ federation_data(id, query = NULL, strict = FALSE, subclassQuery = NULL,
   ...)
 }
 \arguments{
+\item{id}{(character) A dataset id}
+
 \item{query}{Query terms}
 
 \item{strict}{(logical) Only consider more relevant columns. Default: \code{FALSE}}

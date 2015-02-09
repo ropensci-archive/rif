@@ -3,5 +3,6 @@
 export(federation_data)
 export(federation_search)
 export(summary)
+import(dplyr)
 import(httr)
 import(jsonlite)
