@@ -1,4 +1,4 @@
-#' Summary endpoint
+#' Summary
 #'
 #' @import httr jsonlite
 #' @export

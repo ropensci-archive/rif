@@ -2,7 +2,7 @@
 % Please edit documentation in R/summary.R
 \name{summary}
 \alias{summary}
-\title{Summary endpoint}
+\title{Summary}
 \usage{
 summary(query, expandSynonyms = TRUE, expandAcronyms = FALSE,
   expandAbbrevs = FALSE, expandInferred = TRUE, ...)
@@ -23,7 +23,7 @@ expanded? Default: \code{TRUE}}
 \item{...}{Curl options passed on to \code{\link[httr]{GET}}}
 }
 \description{
-Summary endpoint
+Summary
 }
 \examples{
 \dontrun{

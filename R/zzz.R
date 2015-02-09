@@ -9,12 +9,25 @@ nif_GET <- function(url, args, ...){
 }
 
 nif_parse <- function(x, simplify=FALSE){
-  jsonlite::fromJSON(x, simplify)
+  jsonlite::fromJSON(x, simplify, flatten = TRUE)
 }
 
 al <- function(x){
-  if(x)
-    'true'
-  else
-    'false'
+  if(is.null(x)){
+    NULL
+  } else {
+    if(x){
+      'true'
+    } else {
+      'false'
+    }
+  }
+}
+
+pluck <- function(x, name, type) {
+  if (missing(type)) {
+    lapply(x, "[[", name)
+  } else {
+    vapply(x, "[[", name, FUN.VALUE = type)
+  }
 }

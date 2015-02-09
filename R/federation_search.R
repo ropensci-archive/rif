@@ -1,25 +1,25 @@
-#' Summary endpoint
+#' Federation search
 #'
 #' @export
 #' @param strict (logical) Only consider more relevant columns. Default: \code{FALSE}
 #' @param snippetCount How many snippets to return. Default: 0
 #' @template args
+#' @keywords federation
 #'
 #' @examples \dontrun{
 #' out <- federation_search("cellular")
 #' out$query
 #' out$messages
-#' out$result$literatureSummary
-#' out$result$federationSummary$total
-#' out$result$federationSummary$categories
-#' head(out$result$federationSummary$results)
+#' out$result$total
+#' out$result$categories
+#' head(out$result$results)
 #'
-#' head( summary("cellular")$result$federationSummary$results )
-#' head( summary("cellular", expandSynonyms=FALSE)$result$federationSummary$results )
-#' head( summary("cellular", expandAbbrevs=TRUE)$result$federationSummary$results )
+#' head( federation_search("cellular")$result$results )
+#' head( federation_search("cellular", strict=TRUE)$result$results )
+#' federation_search("cellular", snippetCount=3)
 #'
 #' library("httr")
-#' summary("cellular", config=verbose())
+#' federation_search("cellular", config=verbose())
 #' }
 
 federation_search <- function(query, strict=FALSE, snippetCount=0, expandSynonyms=TRUE,

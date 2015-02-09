@@ -2,7 +2,7 @@
 % Please edit documentation in R/federation_search.R
 \name{federation_search}
 \alias{federation_search}
-\title{Summary endpoint}
+\title{Federation search}
 \usage{
 federation_search(query, strict = FALSE, snippetCount = 0,
   expandSynonyms = TRUE, expandAcronyms = FALSE, expandAbbrevs = FALSE,
@@ -28,24 +28,24 @@ expanded? Default: \code{TRUE}}
 \item{...}{Curl options passed on to \code{\link[httr]{GET}}}
 }
 \description{
-Summary endpoint
+Federation search
 }
 \examples{
 \dontrun{
 out <- federation_search("cellular")
 out$query
 out$messages
-out$result$literatureSummary
-out$result$federationSummary$total
-out$result$federationSummary$categories
-head(out$result$federationSummary$results)
+out$result$total
+out$result$categories
+head(out$result$results)
 
-head( summary("cellular")$result$federationSummary$results )
-head( summary("cellular", expandSynonyms=FALSE)$result$federationSummary$results )
-head( summary("cellular", expandAbbrevs=TRUE)$result$federationSummary$results )
+head( federation_search("cellular")$result$results )
+head( federation_search("cellular", strict=TRUE)$result$results )
+federation_search("cellular", snippetCount=3)
 
 library("httr")
-summary("cellular", config=verbose())
+federation_search("cellular", config=verbose())
 }
 }
+\keyword{federation}
 
