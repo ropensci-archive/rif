@@ -4,13 +4,16 @@ rif
 ```{r echo=FALSE}
 knitr::opts_chunk$set(
   comment = "#>",
-  collapse = TRUE,
+  collapse = FALSE,
   warning = FALSE,
   message = FALSE
 )
 ```
 
-R client for the Neuroscience Information Framework APIs.
+R client for the [Neuroscience Information Framework](http://www.neuinfo.org/) APIs.
+
+* API docs at [http://nif-services.neuinfo.org/servicesv1/](http://nif-services.neuinfo.org/servicesv1/)
+* Various clients at [http://nif-services.neuinfo.org/servicesv1/downloads.html](http://nif-services.neuinfo.org/servicesv1/downloads.html)
 
 ## Installation
 
@@ -25,12 +28,15 @@ Load `rif`
 library('rif')
 ```
 
-## xxxx
-
-xxx
+## Summary endpoint
 
 ```{r}
-xxx
+out <- summary("cellular")
+out$query
+out$result$literatureSummary
+out$result$federationSummary$total
+out$result$federationSummary$categories
+head(out$result$federationSummary$results)
 ```
 
 ## Meta
