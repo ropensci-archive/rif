@@ -6,16 +6,20 @@ before_script:
 - curl -OL http://raw.github.com/craigcitro/r-travis/master/scripts/travis-tool.sh
 - chmod 755 ./travis-tool.sh
 - sudo apt-get update
-- sudo apt-get install poppler-utils
 - "./travis-tool.sh bootstrap"
 - "./travis-tool.sh install_deps"
 
-on_failure:
+env:
+   global:
+     - R_BUILD_ARGS="--no-manual"
+     - R_CHECK_ARGS="--as-cran --no-manual"
+
+after_failure:
   - ./travis-tool.sh dump_logs
 
 notifications:
+  slack:
+    secure: YOxbPBFVAMbDbNc/6tDn5749/qOfJkM+hfTraG9LGstCZC2C4I7rxb3BRkUHphIbFuQiH8BW/L+BKPXkLBL8Hrz4uMMyD3RtMX1A9fZ9WizkHMT4GLCHE011TITiYIeJvv41R7RBuy6rn3RLpID5KeMTTDphIz1TOZdl1zsxqds=
   email:
     on_success: change
     on_failure: change
-  slack:
-    secure: Q8AQQdRyHJC8fcyc5vD+H25QHfi6mkU8r7tKMxPLkA5RFkHQsOoO+9eUSH6g55rUw3EyIcj7SUbxmbjH4dhh3RNeLz+OmEcUzwKK1kza0VUWOgRwytHY66oigUFwewYwn+D+bNUYhcA/iXkBtlEx/oI+C9MSP2qR+Bd9AYfc5nw=

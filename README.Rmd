@@ -10,6 +10,8 @@ knitr::opts_chunk$set(
 )
 ```
 
+[![Build Status](https://api.travis-ci.org/ropensci/rif.png)](https://travis-ci.org/ropensci/rif)
+
 R client for the [Neuroscience Information Framework](http://www.neuinfo.org/) APIs.
 
 * API docs at [http://nif-services.neuinfo.org/servicesv1/](http://nif-services.neuinfo.org/servicesv1/)
