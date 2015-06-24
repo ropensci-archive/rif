@@ -12,7 +12,7 @@ literature_search(query, offset = 0, count = 20, minDate = NULL,
   expandInferred = TRUE, highlight = FALSE, abstract = TRUE, ...)
 }
 \arguments{
-\item{query}{The query}
+\item{query}{Query terms}
 
 \item{offset}{(integer) The result (row) to start on    query    0}
 
@@ -57,8 +57,6 @@ expanded? Default: \code{TRUE}}
 \item{abstract}{(no documentation provided). Default: TRUE}
 
 \item{...}{Curl options passed on to \code{\link[httr]{GET}}}
-
-\item{query}{Query terms}
 }
 \description{
 Literature search

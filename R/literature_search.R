@@ -2,7 +2,6 @@
 #'
 #' @export
 #'
-#' @param query The query
 #' @param offset (integer) The result (row) to start on	query	0
 #' @param count (integer) The number of results (rows) to return. Default: 20
 #' @param minDate The minimum date (a unix time value - milliseconds since 1970)

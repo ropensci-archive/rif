@@ -1,7 +1,7 @@
 #' Federation data
 #'
 #' @export
-#' @importFrom dplyr rbind_all
+#' @importFrom dplyr rbind_all tbl_df
 #'
 #' @param id (character) A dataset id
 #' @param strict (logical) Only consider more relevant columns. Default: \code{FALSE}

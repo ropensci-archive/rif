@@ -1,7 +1,7 @@
 Package: rif
 Title: Client for 'Neuroscience' Information Framework 'APIs'
 Description: Client for 'Neuroscience' Information Framework 'APIs'.
-Version: 0.0.2.9800
+Version: 0.0.3.9000
 License: MIT + file LICENSE
 Authors@R: person("Scott", "Chamberlain", role = c("aut", "cre"), email =
     "myrmecocystus@gmail.com")
