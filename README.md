@@ -12,6 +12,8 @@ R client for the [Neuroscience Information Framework](http://www.neuinfo.org/) A
 
 ## Installation
 
+Install development version from GitHub (not on CRAN yet)
+
 
 ```r
 install.packages("devtools")
@@ -25,11 +27,206 @@ Load `rif`
 library('rif')
 ```
 
-## Summary endpoint
+## Summary
 
 
 ```r
-out <- summary("cellular")
+out <- rif_summary("cellular")
+head(out$result$federationSummary$results)
+```
+
+```
+#>   parentCategory   category                        db            indexable
+#> 1   System Level   Molecule              PeptideAtlas             MassSpec
+#> 2   Type of Data  Phenotype                      IMPC   KnockoutPhenotypes
+#> 3   Type of Data  Cell line Coriell Cell Repositories                NIGMS
+#> 4   System Level       Cell Coriell Cell Repositories                NIGMS
+#> 5   Type of Data Expression                       GEO MicroarrayExperiment
+#> 6   Type of Data Microarray                       GEO MicroarrayExperiment
+#>              nifId count totalCount snippets
+#> 1 nif-0000-03266-2     4         76     NULL
+#> 2     nlx_151660-1     2      11373     NULL
+#> 3 nif-0000-00182-2    11       9854     NULL
+#> 4 nif-0000-00182-2    11       9854     NULL
+#> 5 nif-0000-00142-1  4340      68725     NULL
+#> 6 nif-0000-00142-1  4340      68725     NULL
+#>                             summaryString
+#> 1            PeptideAtlas: MassSpec (4)[]
+#> 2          IMPC: KnockoutPhenotypes (2)[]
+#> 3 Coriell Cell Repositories: NIGMS (11)[]
+#> 4 Coriell Cell Repositories: NIGMS (11)[]
+#> 5      GEO: MicroarrayExperiment (4340)[]
+#> 6      GEO: MicroarrayExperiment (4340)[]
+```
+
+## Query
+
+List NIF query categories
+
+
+```r
+rif_query_categories()
+```
+
+```
+#>  [1] "anatomy"             "antibody"            "catalognumber"      
+#>  [4] "cell"                "coordinate"          "disease"            
+#>  [7] "environment"         "fulltext"            "function"           
+#> [10] "gene"                "genetargetreagent"   "genomiclocus"       
+#> [13] "genomiclocusvariant" "genotype"            "identifier"         
+#> [16] "interaction"         "interactiontype"     "moleculardomain"    
+#> [19] "molecule"            "organism"            "pathway"            
+#> [22] "phenotype"           "protocol"            "publication"        
+#> [25] "quality"             "resource"            "sequence"           
+#> [28] "sequencefeature"     "specimen"            "stage"              
+#> [31] "strain"              "subcellularanatomy"
+```
+
+## Vocabulary
+
+Search for vocabulary terms
+
+
+```r
+vocabulary_search("cell", limit = 3)
+```
+
+```
+#>                                   uuid    term           id category
+#> 1 1bbad62f-b412-41a4-9018-e1ffd5c4b335    cell NEMO_9559000     cell
+#> 2 69ca235c-b002-48d1-b0e5-6af148397f26    cell   GO_0005623     cell
+#> 3 3dab9b07-6a44-4822-b5cf-34dab10db8f7 On cell    nifext_32     Cell
+#>   provider inferred acronym abbreviation synonyms definition
+#> 1   NIFSTD    FALSE   FALSE        FALSE       NA         NA
+#> 2   NIFSTD    FALSE   FALSE        FALSE       NA         NA
+#> 3   NIFSTD    FALSE   FALSE        FALSE       NA         NA
+```
+
+## Lexical
+
+Break up text into various things
+
+
+```r
+text <- "Lorem ipsum inceptos dolor nisi torquent porttitor donec, blandit scelerisque
+mattis cras quis mi, aliquam sagittis. Convallis placerat commodo imperdiet varius nunc
+tempus urna vitae ultrices tristique eu mi ornare velit donec, posuere laoreet pretium
+vitae porta augue porta feugiat in sapien egestas. Quam odio nullam pulvinar litora
+curabitur amet lacus sociosqu gravida ligula molestie dui netus fusce bibendum
+scelerisque, dictum malesuada proin elit etiam aliquam, mattis euismod donec nisl facilisis."
+text <- gsub("\n", "", text)
+```
+
+### Sentences
+
+
+```r
+lexical_sentences(text)
+```
+
+```
+#> $sentence
+#> [1] "Lorem ipsum inceptos dolor nisi torquent porttitor donec, blandit scelerisquemattis cras quis mi, aliquam sagittis."                                                                                       
+#> [2] "Convallis placerat commodo imperdiet varius nunctempus urna vitae ultrices tristique eu mi ornare velit donec, posuere laoreet pretiumvitae porta augue porta feugiat in sapien egestas."                  
+#> [3] "Quam odio nullam pulvinar litoracurabitur amet lacus sociosqu gravida ligula molestie dui netus fusce bibendumscelerisque, dictum malesuada proin elit etiam aliquam, mattis euismod donec nisl facilisis."
+```
+
+### Chunks
+
+
+```r
+head(lexical_chunks(text))
+```
+
+```
+#>                                 token start end
+#> 1                Lorem ipsum inceptos     0  20
+#> 2 dolor nisi torquent porttitor donec    21  56
+#> 3           blandit scelerisquemattis    58  83
+#> 4                                cras    84  88
+#> 5                             quis mi    89  96
+#> 6                    aliquam sagittis    98 114
+```
+
+### Entities
+
+
+```r
+head(lexical_entities(text))
+```
+
+```
+#>                        token start end
+#> 1 Lorem ipsum inceptos dolor     0  26
+#> 2   torquent porttitor donec    32  56
+#> 3  blandit scelerisquemattis    58  83
+#> 4                       cras    84  88
+#> 5                    quis mi    89  96
+#> 6         aliquam sagittis .    98 115
+```
+
+## Literature
+
+Search
+
+
+```r
+library("dplyr")
+out <- literature_search(query = "cellular", count = 5)
+out$result$publications %>% 
+  select(pmid, journal, year)
+```
+
+```
+#> Source: local data frame [5 x 3]
+#> 
+#>       pmid
+#> 1 12944235
+#> 2  8789268
+#> 3  2987169
+#> 4 15088773
+#> 5 22482413
+#> Variables not shown: journal (chr), year (int)
+```
+
+Get retractions
+
+
+```r
+out <- literature_retractions()
+out[1:20]
+```
+
+```
+#>  [1] "21386829" "16519442" "23675629" "15968000" "16934686" "10318977"
+#>  [7] "16373573" "22360771" "9593639"  "11108151" "19723695" "18410446"
+#> [13] "23551690" "17251587" "22992046" "12554767" "11146662" "8909298" 
+#> [19] "9503219"  "11006278"
+```
+
+Then get info on some articles
+
+
+```r
+arts <- literature_pmid(pmid = out[1:2])
+lapply(arts, "[[", "title")
+```
+
+```
+#> [[1]]
+#> [1] "Lamellar gels and spontaneous vesicles in catanionic surfactant mixtures."
+#> 
+#> [[2]]
+#> [1] "Molecular pathways underlying IBD-associated colorectal neoplasia: therapeutic implications."
+```
+
+## Data
+
+Search for data
+
+
+```r
+out <- federation_search("cellular")
 out$query
 ```
 
@@ -43,101 +240,69 @@ out$query
 ```
 
 ```r
-out$result$literatureSummary
-```
-
-```
-#> $publications
-#> list()
-#> 
-#> $facets
-#> list()
-#> 
-#> $debugInfo
-#> [1] "grantId:cellular^20.0 abstract:cellular^5.0 journal:cellular author:cellular^3.0 title:cellular^10.0 abstract_exact:cellular^10.0 year_search:cellular^10.0 pmid_search:cellular^10.0 pmcid_search:cellular^10.0 title_exact:cellular^20.0 meshHeading:cellular^7.0"
-#> 
-#> $offset
-#> [1] 0
-#> 
-#> $resultCount
-#> [1] 704712
-```
-
-```r
-out$result$federationSummary$total
-```
-
-```
-#> [1] 884634
-```
-
-```r
-out$result$federationSummary$categories
-```
-
-```
-#>           parent              category  count
-#> 1   System Level                  Cell  10548
-#> 2   Type of Data Brain Activation Foci    364
-#> 3   Type of Data                People     21
-#> 4   Type of Data               Disease   2632
-#> 5   Type of Data                Models    886
-#> 6   Type of Data              Software     20
-#> 7   Type of Data             Cell line     86
-#> 8   Type of Data            Expression  24227
-#> 9   System Level                  Gene 428021
-#> 10  Type of Data               Dataset    926
-#> 11  Type of Data            Microarray  22098
-#> 12  Type of Data               Animals    845
-#> 13  System Level         Gross Anatomy     32
-#> 14  Type of Data              Pathways    531
-#> 15  Type of Data            Registries    635
-#> 16  Type of Data                Grants 115362
-#> 17  System Level              Molecule   4618
-#> 18  Type of Data             Phenotype   4104
-#> 19  Type of Data              Plasmids     23
-#> 20  Type of Data       Clinical Trials   5512
-#> 21  Type of Data             Orthology     19
-#> 22  Type of Data           Biospecimen     19
-#> 23  Type of Data                 Atlas    187
-#> 24  System Level              Function   9991
-#> 25  Type of Data          Interactions     16
-#> 26  Type of Data            Annotation 302884
-#> 27  Type of Data            Multimedia   2753
-#> 28  Type of Data                 Drugs   4733
-#> 29 Uncategorized                  Gene      6
-#> 30 Uncategorized               Disease      6
-#> 31  Type of Data             Protocols      5
-#> 32  Type of Data                Images  10941
-#> 33  Type of Data            Antibodies    400
-```
-
-```r
-head(out$result$federationSummary$results)
+head(out$result$results)
 ```
 
 ```
 #>   parentCategory   category                        db            indexable
-#> 1   System Level       Cell Coriell Cell Repositories                NIGMS
-#> 2   Type of Data  Cell line Coriell Cell Repositories                NIGMS
-#> 3   Type of Data Microarray                       GEO MicroarrayExperiment
-#> 4   Type of Data Expression                       GEO MicroarrayExperiment
-#> 5   Type of Data    Disease                  Orphanet             Diseases
-#> 6   System Level       Gene                      OMIM  GeneAllelePhenotype
+#> 1   System Level   Molecule              PeptideAtlas             MassSpec
+#> 2   Type of Data  Phenotype                      IMPC   KnockoutPhenotypes
+#> 3   Type of Data  Cell line Coriell Cell Repositories                NIGMS
+#> 4   System Level       Cell Coriell Cell Repositories                NIGMS
+#> 5   Type of Data Expression                       GEO MicroarrayExperiment
+#> 6   Type of Data Microarray                       GEO MicroarrayExperiment
 #>              nifId count totalCount snippets
-#> 1 nif-0000-00182-2    11       9854     NULL
-#> 2 nif-0000-00182-2    11       9854     NULL
-#> 3 nif-0000-00142-1  3442      54576     NULL
-#> 4 nif-0000-00142-1  3442      54576     NULL
-#> 5 nif-0000-21306-1     3       9209     NULL
-#> 6 nif-0000-03216-6   176      21164     NULL
+#> 1 nif-0000-03266-2     4         76     NULL
+#> 2     nlx_151660-1     2      11373     NULL
+#> 3 nif-0000-00182-2    11       9854     NULL
+#> 4 nif-0000-00182-2    11       9854     NULL
+#> 5 nif-0000-00142-1  4340      68725     NULL
+#> 6 nif-0000-00142-1  4340      68725     NULL
 #>                             summaryString
-#> 1 Coriell Cell Repositories: NIGMS (11)[]
-#> 2 Coriell Cell Repositories: NIGMS (11)[]
-#> 3      GEO: MicroarrayExperiment (3442)[]
-#> 4      GEO: MicroarrayExperiment (3442)[]
-#> 5                Orphanet: Diseases (3)[]
-#> 6       OMIM: GeneAllelePhenotype (176)[]
+#> 1            PeptideAtlas: MassSpec (4)[]
+#> 2          IMPC: KnockoutPhenotypes (2)[]
+#> 3 Coriell Cell Repositories: NIGMS (11)[]
+#> 4 Coriell Cell Repositories: NIGMS (11)[]
+#> 5      GEO: MicroarrayExperiment (4340)[]
+#> 6      GEO: MicroarrayExperiment (4340)[]
+```
+
+Get some data
+
+
+```r
+out <- federation_data(id = "nlx_152871-2")
+out$result$result
+```
+
+```
+#> Source: local data frame [20 x 11]
+#> 
+#>                                                     Gene
+#> 1        nuclear receptor subfamily 1, group H, member 4
+#> 2    scratch homolog 1, zinc finger protein (Drosophila)
+#> 3                                      myogenic factor 5
+#> 4                                         ALX homeobox 1
+#> 5                        frizzled homolog 6 (Drosophila)
+#> 6                                            homeobox A3
+#> 7                                            cadherin 11
+#> 8             interleukin-1 receptor-associated kinase 1
+#> 9  tumor necrosis factor receptor superfamily, member 18
+#> 10                         four and a half LIM domains 4
+#> 11                             folate receptor 1 (adult)
+#> 12                                            syndecan 3
+#> 13                   fibroblast growth factor receptor 2
+#> 14                           IKAROS family zinc finger 2
+#> 15                 guanylate cyclase 1, soluble, alpha 3
+#> 16                           estrogen receptor 1 (alpha)
+#> 17                            transmembrane protein 184a
+#> 18               developmental pluripotency associated 4
+#> 19                                 mesenchyme homeobox 2
+#> 20           POU domain, class 2, transcription factor 2
+#> Variables not shown: Anatomical.Component (chr), Assay.Type (chr),
+#>   Theiler.Stage (chr), Tissue (chr), Expression.Strength (chr),
+#>   Expression.Pattern (chr), Expression.Pattern.Location (chr), Authors
+#>   (chr), Notes (chr), Source (chr)
 ```
 
 ## Meta

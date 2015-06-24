@@ -32,15 +32,101 @@ Load `rif`
 library('rif')
 ```
 
-## Summary endpoint
+## Summary
 
 ```{r}
-out <- summary("cellular")
-out$query
-out$result$literatureSummary
-out$result$federationSummary$total
-out$result$federationSummary$categories
+out <- rif_summary("cellular")
 head(out$result$federationSummary$results)
+```
+
+## Query
+
+List NIF query categories
+
+```{r}
+rif_query_categories()
+```
+
+## Vocabulary
+
+Search for vocabulary terms
+
+```{r}
+vocabulary_search("cell", limit = 3)
+```
+
+## Lexical
+
+Break up text into various things
+
+```{r}
+text <- "Lorem ipsum inceptos dolor nisi torquent porttitor donec, blandit scelerisque
+mattis cras quis mi, aliquam sagittis. Convallis placerat commodo imperdiet varius nunc
+tempus urna vitae ultrices tristique eu mi ornare velit donec, posuere laoreet pretium
+vitae porta augue porta feugiat in sapien egestas. Quam odio nullam pulvinar litora
+curabitur amet lacus sociosqu gravida ligula molestie dui netus fusce bibendum
+scelerisque, dictum malesuada proin elit etiam aliquam, mattis euismod donec nisl facilisis."
+text <- gsub("\n", "", text)
+```
+
+### Sentences
+
+```{r}
+lexical_sentences(text)
+```
+
+### Chunks
+
+```{r}
+head(lexical_chunks(text))
+```
+
+### Entities
+
+```{r}
+head(lexical_entities(text))
+```
+
+## Literature
+
+Search
+
+```{r}
+library("dplyr")
+out <- literature_search(query = "cellular", count = 5)
+out$result$publications %>% 
+  select(pmid, journal, year)
+```
+
+Get retractions
+
+```{r}
+out <- literature_retractions()
+out[1:20]
+```
+
+Then get info on some articles
+
+```{r}
+arts <- literature_pmid(pmid = out[1:2])
+lapply(arts, "[[", "title")
+```
+
+## Data
+
+Search for data
+
+```{r}
+out <- federation_search("cellular")
+out$query
+head(out$result$results)
+```
+
+Get some data
+
+```{r}
+out <- federation_data(id = "nlx_152871-2")
+out$result$result
 ```
 
 ## Meta
