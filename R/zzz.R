@@ -1,9 +1,9 @@
 nifbase <- function() "http://nif-services.neuinfo.org/servicesv1/v1"
 
-nc <- function (l) Filter(Negate(is.null), l)
+nc <- function(l) Filter(Negate(is.null), l)
 
 nif_GET <- function(url, args, ...){
-  res <- GET(url, query=args, ...)
+  res <- GET(url, query = args, ...)
   stop_for_status(res)
   content(res, "text")
 }
@@ -12,11 +12,11 @@ nif_parse <- function(x, simplify=FALSE){
   jsonlite::fromJSON(x, simplify, flatten = TRUE)
 }
 
-al <- function(x){
-  if(is.null(x)){
+al <- function(x) {
+  if (is.null(x)) {
     NULL
   } else {
-    if(x){
+    if (x) {
       'true'
     } else {
       'false'
