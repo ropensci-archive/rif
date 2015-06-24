@@ -19,6 +19,8 @@ R client for the [Neuroscience Information Framework](http://www.neuinfo.org/) A
 
 ## Installation
 
+Install development version from GitHub (not on CRAN yet)
+
 ```{r eval=FALSE}
 install.packages("devtools")
 devtools::install_github("ropensci/rif")
