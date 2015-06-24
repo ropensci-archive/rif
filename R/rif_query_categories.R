@@ -2,7 +2,7 @@
 #'
 #' @export
 #'
-#' @template args
+#' @param ... Curl options passed on to \code{\link[httr]{GET}}
 #' @family query
 #'
 #' @examples \dontrun{

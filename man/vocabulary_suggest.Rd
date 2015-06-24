@@ -12,10 +12,6 @@ vocabulary_suggest(query, limit = 10, ...)
 \item{limit}{The number of candidates to return. Default: 20}
 
 \item{...}{Curl options passed on to \code{\link[httr]{GET}}}
-
-\item{category}{A category}
-
-\item{vocabulary}{A vocabulary}
 }
 \description{
 DOESN'T SEEM TO WORK

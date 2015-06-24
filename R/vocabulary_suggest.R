@@ -6,8 +6,6 @@
 #'
 #' @param query (character) Query terms
 #' @param limit The number of candidates to return. Default: 20
-#' @param category A category
-#' @param vocabulary A vocabulary
 #' @param ... Curl options passed on to \code{\link[httr]{GET}}
 #' @family vocabulary
 #'

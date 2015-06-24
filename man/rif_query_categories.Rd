@@ -8,18 +8,6 @@ rif_query_categories(...)
 }
 \arguments{
 \item{...}{Curl options passed on to \code{\link[httr]{GET}}}
-
-\item{query}{Query terms}
-
-\item{expandSynonyms}{(logical) Should recognized terms in the query have synonyms
-expanded? Default: \code{TRUE}}
-
-\item{expandAcronyms}{(logical) Default: \code{FALSE}}
-
-\item{expandAbbrevs}{(logical) Default: \code{FALSE}}
-
-\item{expandInferred}{(logical) Should recognized terms in the query have inferred terms
-expanded? Default: \code{TRUE}}
 }
 \description{
 Query NIF data
