@@ -19,7 +19,7 @@
 #' @param highlight (no documentation provided). Default: FALSE
 #' @param abstract  (no documentation provided). Default: TRUE
 #' @template args
-#' @keywords literature
+#' @keywords family
 #'
 #' @examples \dontrun{
 #' out <- literature_search(query = "cellular")

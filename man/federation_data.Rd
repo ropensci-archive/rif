@@ -86,5 +86,8 @@ library("httr")
 federation_data("nlx_152871-2", config = verbose())
 }
 }
-\keyword{federation}
+\seealso{
+Other federation: \code{\link{federation_facet}};
+  \code{\link{federation_search}}
+}
 

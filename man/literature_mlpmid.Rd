@@ -38,5 +38,9 @@ literature_mlpmid(pmid = out[1:3], yearFilter = 2005) \%>\%
    select(pmid, year)
 }
 }
-\keyword{literature}
+\seealso{
+Other literature: \code{\link{literature_mltext}};
+  \code{\link{literature_pmid}};
+  \code{\link{literature_retractions}}
+}
 

@@ -28,7 +28,7 @@
 #' @param orMultiFacets (logical) True if multiple facet values for the same facet are specified in the
 #' query and should be ORed together. Defaults to AND.	query	false
 #' @template args
-#' @keywords federation
+#' @family federation
 #'
 #' @examples \dontrun{
 #' out <- federation_data(id = "nlx_152871-2")

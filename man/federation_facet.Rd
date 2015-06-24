@@ -66,5 +66,8 @@ out$facets
 federation_facet(id = "nlx_152871-2", count = 100, minCount = 10)
 }
 }
-\keyword{federation}
+\seealso{
+Other federation: \code{\link{federation_data}};
+  \code{\link{federation_search}}
+}
 

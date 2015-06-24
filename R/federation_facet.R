@@ -18,7 +18,7 @@
 #' ID. All subclasses of parentID will be included in the filter. This parameter may be
 #' combined with "filter".	query
 #' @template args
-#' @keywords federation
+#' @family federation
 #'
 #' @examples \dontrun{
 #' out <- federation_facet(id = "nlx_152871-2")

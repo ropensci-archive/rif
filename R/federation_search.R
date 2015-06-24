@@ -4,7 +4,7 @@
 #' @param strict (logical) Only consider more relevant columns. Default: \code{FALSE}
 #' @param snippetCount How many snippets to return. Default: 0
 #' @template args
-#' @keywords federation
+#' @family federation
 #'
 #' @examples \dontrun{
 #' out <- federation_search("cellular")

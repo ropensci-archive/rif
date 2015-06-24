@@ -3,7 +3,7 @@
 #' @export
 #' @param pmid One or more PMID's in a vector or list
 #' @param ... Curl options passed on to \code{\link[httr]{GET}}
-#' @keywords literature
+#' @family literature
 #' @examples \dontrun{
 #' # get PMIDs for retracted articles
 #' (out <- literature_retractions())

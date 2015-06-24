@@ -20,5 +20,9 @@ Search literature retractions
 literature_pmid(pmid = out[1])
 }
 }
-\keyword{literature}
+\seealso{
+Other literature: \code{\link{literature_mlpmid}};
+  \code{\link{literature_mltext}};
+  \code{\link{literature_pmid}}
+}
 

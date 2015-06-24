@@ -24,5 +24,9 @@ literature_pmid(pmid = out[1:2])
 literature_pmid(pmid = out[1:10])
 }
 }
-\keyword{literature}
+\seealso{
+Other literature: \code{\link{literature_mlpmid}};
+  \code{\link{literature_mltext}};
+  \code{\link{literature_retractions}}
+}
 

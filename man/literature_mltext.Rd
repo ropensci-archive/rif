@@ -27,5 +27,9 @@ literature_mltext(text = "ecology", count = 200) \%>\%
    select(pmid, title)
 }
 }
-\keyword{literature}
+\seealso{
+Other literature: \code{\link{literature_mlpmid}};
+  \code{\link{literature_pmid}};
+  \code{\link{literature_retractions}}
+}
 

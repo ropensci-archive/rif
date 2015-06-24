@@ -9,7 +9,7 @@
 #' @param yearFilter  Year filters
 #' @param journalFilter Journal filters
 #' @param ... Curl options passed on to \code{\link[httr]{GET}}
-#' @keywords literature
+#' @family literature
 #'
 #' @examples \dontrun{
 #' out <- literature_retractions()

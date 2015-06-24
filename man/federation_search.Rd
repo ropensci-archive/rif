@@ -47,5 +47,8 @@ library("httr")
 federation_search("cellular", config=verbose())
 }
 }
-\keyword{federation}
+\seealso{
+Other federation: \code{\link{federation_data}};
+  \code{\link{federation_facet}}
+}
 

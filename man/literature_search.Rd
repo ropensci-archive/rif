@@ -74,5 +74,5 @@ literature_search(query = "ecology", searchFullText = TRUE)
 literature_search(query = "ecology", requireFullText = TRUE)
 }
 }
-\keyword{literature}
+\keyword{family}
 

@@ -6,7 +6,7 @@
 #' @param offset (integer) The result (row) to start on	query	0
 #' @param count (integer) The number of results (rows) to return. Default: 5
 #' @param ... Curl options passed on to \code{\link[httr]{GET}}
-#' @keywords literature
+#' @family literature
 #'
 #' @examples \dontrun{
 #' literature_mltext(text = "cellular")
