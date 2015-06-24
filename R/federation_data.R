@@ -87,7 +87,13 @@ parse_rows <- function(x){
 parse_meta <- function(x){
   claus <- x$clauses[[1]]
   claus[sapply(claus, function(x) is.null(x) || length(x) == 0)] <- NA
-  data.frame(claus, stringsAsFactors = FALSE)
+  df <- data.frame(claus, stringsAsFactors = FALSE)
+  op <- x$operator
+  if (!is.null(op)) {
+    cbind(df, data.frame(operator = op, stringsAsFactors = FALSE))
+  } else {
+    df
+  }
 }
 
 move_col <- function(x, y, to = "start"){

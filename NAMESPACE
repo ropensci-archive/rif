@@ -3,6 +3,7 @@
 export(federation_data)
 export(federation_facet)
 export(federation_search)
+export(literature_search)
 export(summary)
 importFrom(dplyr,rbind_all)
 importFrom(httr,GET)
