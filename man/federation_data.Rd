@@ -71,7 +71,7 @@ Federation data
 }
 \examples{
 \dontrun{
-out <- federation_data(id="nlx_152871-2")
+out <- federation_data(id = "nlx_152871-2")
 out$query
 out$messages
 out$result$resultCount
@@ -80,10 +80,10 @@ out$result$debugInfo
 out$result$result
 out$result$results
 
-federation_data(id="nlx_152871-2", query="TS23")
+federation_data(id = "nlx_152871-2", query = "TS23")
 
 library("httr")
-federation_data("nlx_152871-2", config=verbose())
+federation_data("nlx_152871-2", config = verbose())
 }
 }
 \keyword{federation}

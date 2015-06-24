@@ -1,7 +1,7 @@
 #' Federation data
 #'
 #' @export
-#' @import dplyr
+#' @importFrom dplyr rbind_all
 #'
 #' @param id (character) A dataset id
 #' @param strict (logical) Only consider more relevant columns. Default: \code{FALSE}
@@ -31,7 +31,7 @@
 #' @keywords federation
 #'
 #' @examples \dontrun{
-#' out <- federation_data(id="nlx_152871-2")
+#' out <- federation_data(id = "nlx_152871-2")
 #' out$query
 #' out$messages
 #' out$result$resultCount
@@ -40,25 +40,25 @@
 #' out$result$result
 #' out$result$results
 #'
-#' federation_data(id="nlx_152871-2", query="TS23")
+#' federation_data(id = "nlx_152871-2", query = "TS23")
 #'
 #' library("httr")
-#' federation_data("nlx_152871-2", config=verbose())
+#' federation_data("nlx_152871-2", config = verbose())
 #' }
 
-federation_data <- function(id, query=NULL, strict=FALSE, subclassQuery=NULL, expandSynonyms=TRUE,
-  expandAcronyms=FALSE, expandAbbrevs=FALSE, expandInferred=TRUE, highlight=FALSE,
-  sortField=NULL, sortAsc=TRUE, offset=0, count=20, project=NULL, facet=NULL,
-  filter=NULL, subclassFilter=NULL, includePrimaryData=FALSE,
-  exportType=NULL, orMultiFacets=FALSE, ...){
+federation_data <- function(id, query = NULL, strict = FALSE, subclassQuery = NULL, expandSynonyms = TRUE,
+  expandAcronyms = FALSE, expandAbbrevs = FALSE, expandInferred = TRUE, highlight = FALSE,
+  sortField = NULL, sortAsc = TRUE, offset = 0, count = 20, project = NULL, facet = NULL,
+  filter = NULL, subclassFilter = NULL, includePrimaryData = FALSE,
+  exportType = NULL, orMultiFacets = FALSE, ...){
 
-  args <- nc(list(q=query, strict=al(strict), subclassQuery=subclassQuery,
-                  expandSynonyms=al(expandSynonyms), expandAcronyms=al(expandAcronyms),
-                  expandAbbrevs=al(expandAbbrevs), expandInferred=al(expandInferred),
-                  highlight=al(highlight), sortField=sortField, sortAsc=al(sortAsc), offset=offset,
-                  count=count, project=project, facet=facet, filter=filter,
-                  subclassFilter=subclassFilter, includePrimaryData=al(includePrimaryData),
-                  exportType=exportType, orMultiFacets=al(orMultiFacets)))
+  args <- nc(list(q = query, strict = al(strict), subclassQuery = subclassQuery,
+                  expandSynonyms = al(expandSynonyms), expandAcronyms = al(expandAcronyms),
+                  expandAbbrevs = al(expandAbbrevs), expandInferred = al(expandInferred),
+                  highlight = al(highlight), sortField = sortField, sortAsc = al(sortAsc), offset = offset,
+                  count = count, project = project, facet = facet, filter = filter,
+                  subclassFilter = subclassFilter, includePrimaryData = al(includePrimaryData),
+                  exportType = exportType, orMultiFacets = al(orMultiFacets)))
   res <- nif_parse(
     nif_GET(file.path(nifbase(), paste0("federation/data/", id)), args, accept_json(), ...),
   FALSE)
@@ -76,10 +76,10 @@ parse_result <- function(x){
 parse_rows <- function(x){
   rows <- pluck(x, "data")
   out <- list()
-  for(i in seq_along(rows)){
-    out[[i]] <- data.frame(row=paste0("row", i),
+  for (i in seq_along(rows)) {
+    out[[i]] <- data.frame(row = paste0("row", i),
                            colClasses(do.call("rbind.data.frame", rows[[i]]), "character"),
-                           stringsAsFactors = FALSE)
+                           stringsAsFactors  =  FALSE)
   }
   rbind_all(out)
 }
@@ -90,6 +90,6 @@ parse_meta <- function(x){
   data.frame(claus, stringsAsFactors = FALSE)
 }
 
-move_col <- function(x, y, to="start"){
+move_col <- function(x, y, to = "start"){
   x[ c(names(x)[-grep(y, names(x))], y) ]
 }

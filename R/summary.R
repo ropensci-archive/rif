@@ -1,6 +1,7 @@
 #' Summary
 #'
-#' @import httr jsonlite
+#' @importFrom httr GET content stop_for_status accept_json
+#' @importFrom jsonlite fromJSON
 #' @export
 #'
 #' @template args
@@ -24,7 +25,7 @@
 summary <- function(query, expandSynonyms=TRUE, expandAcronyms=FALSE,
   expandAbbrevs=FALSE, expandInferred=TRUE, ...){
 
-  args <- nc(list(q=query, expandSynonyms=al(expandSynonyms), expandAcronyms=al(expandAcronyms),
-                  expandAbbrevs=al(expandAbbrevs), expandInferred=al(expandInferred)))
+  args <- nc(list(q = query, expandSynonyms = al(expandSynonyms), expandAcronyms = al(expandAcronyms),
+                  expandAbbrevs = al(expandAbbrevs), expandInferred = al(expandInferred)))
   nif_parse(nif_GET(file.path(nifbase(), "summary.json"), args, ...), TRUE)
 }
