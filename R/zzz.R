@@ -43,3 +43,11 @@ colClasses <- function(d, colClasses) {
                                                  as(d[[i]], colClasses[i]) ))
   d
 }
+
+move_col <- function(x, y, to = "start"){
+  x[ c(names(x)[-grep(y, names(x))], y) ]
+}
+
+start_end <- function(x) {
+  x[, c("token", "start", "end")]
+}

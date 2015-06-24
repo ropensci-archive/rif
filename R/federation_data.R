@@ -95,7 +95,3 @@ parse_meta <- function(x){
     df
   }
 }
-
-move_col <- function(x, y, to = "start"){
-  x[ c(names(x)[-grep(y, names(x))], y) ]
-}

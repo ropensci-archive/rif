@@ -8,6 +8,13 @@
 \description{
 R Client for Neuroscience Information Framework APIs
 }
+\note{
+The following services are not available in this client:
+\itemize{
+ \item annotate - It appears that this is mostly for browser based annotation,
+ so not a good fit for an R package
+}
+}
 \author{
 \email{myrmecocystus@gmail.com}
 }
