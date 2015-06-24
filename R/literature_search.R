@@ -9,7 +9,7 @@
 #' @param maxDate The maximum date (a unix time value - milliseconds since 1970)
 #' @param facetCount  The facet count. Default: 0
 #' @param snippetCount  The snippet count. Default: 0
-#' @param minMatch  The Solr minmatch percentage. Default: 60%
+#' @param minMatch  The Solr minmatch percentage. Default: 60 percent
 #' @param searchFullText  Should full text be included in the search? Default: FALSE
 #' @param requireFullText Should only full text be included in the search? Default: FALSE
 #' @param authorFilter  Author filters

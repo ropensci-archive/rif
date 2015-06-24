@@ -26,7 +26,7 @@ literature_search(query, offset = 0, count = 20, minDate = NULL,
 
 \item{snippetCount}{The snippet count. Default: 0}
 
-\item{minMatch}{The Solr minmatch percentage. Default: 60%}
+\item{minMatch}{The Solr minmatch percentage. Default: 60 percent}
 
 \item{searchFullText}{Should full text be included in the search? Default: FALSE}
 
