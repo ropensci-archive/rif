@@ -94,7 +94,7 @@ Search
 ```{r}
 library("dplyr")
 out <- literature_search(query = "cellular", count = 5)
-out$result$publications %>% 
+out$result$publications %>%
   select(pmid, journal, year)
 ```
 
@@ -134,5 +134,6 @@ out$result$result
 * Please [report any issues or bugs](https://github.com/ropensci/rif/issues).
 * License: MIT
 * Get citation information for `rif` in R doing `citation(package = 'rif')`
+* Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md). By participating in this project you agree to abide by its terms.
 
 [![ro_footer](http://ropensci.org/public_images/github_footer.png)](http://ropensci.org)

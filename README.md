@@ -69,16 +69,16 @@ rif_query_categories()
 ```
 
 ```
-#>  [1] "anatomy"             "antibody"            "catalognumber"      
-#>  [4] "cell"                "coordinate"          "disease"            
-#>  [7] "environment"         "fulltext"            "function"           
-#> [10] "gene"                "genetargetreagent"   "genomiclocus"       
-#> [13] "genomiclocusvariant" "genotype"            "identifier"         
-#> [16] "interaction"         "interactiontype"     "moleculardomain"    
-#> [19] "molecule"            "organism"            "pathway"            
-#> [22] "phenotype"           "protocol"            "publication"        
-#> [25] "quality"             "resource"            "sequence"           
-#> [28] "sequencefeature"     "specimen"            "stage"              
+#>  [1] "anatomy"             "antibody"            "catalognumber"
+#>  [4] "cell"                "coordinate"          "disease"
+#>  [7] "environment"         "fulltext"            "function"
+#> [10] "gene"                "genetargetreagent"   "genomiclocus"
+#> [13] "genomiclocusvariant" "genotype"            "identifier"
+#> [16] "interaction"         "interactiontype"     "moleculardomain"
+#> [19] "molecule"            "organism"            "pathway"
+#> [22] "phenotype"           "protocol"            "publication"
+#> [25] "quality"             "resource"            "sequence"
+#> [28] "sequencefeature"     "specimen"            "stage"
 #> [31] "strain"              "subcellularanatomy"
 ```
 
@@ -126,8 +126,8 @@ lexical_sentences(text)
 
 ```
 #> $sentence
-#> [1] "Lorem ipsum inceptos dolor nisi torquent porttitor donec, blandit scelerisquemattis cras quis mi, aliquam sagittis."                                                                                       
-#> [2] "Convallis placerat commodo imperdiet varius nunctempus urna vitae ultrices tristique eu mi ornare velit donec, posuere laoreet pretiumvitae porta augue porta feugiat in sapien egestas."                  
+#> [1] "Lorem ipsum inceptos dolor nisi torquent porttitor donec, blandit scelerisquemattis cras quis mi, aliquam sagittis."
+#> [2] "Convallis placerat commodo imperdiet varius nunctempus urna vitae ultrices tristique eu mi ornare velit donec, posuere laoreet pretiumvitae porta augue porta feugiat in sapien egestas."
 #> [3] "Quam odio nullam pulvinar litoracurabitur amet lacus sociosqu gravida ligula molestie dui netus fusce bibendumscelerisque, dictum malesuada proin elit etiam aliquam, mattis euismod donec nisl facilisis."
 ```
 
@@ -173,13 +173,13 @@ Search
 ```r
 library("dplyr")
 out <- literature_search(query = "cellular", count = 5)
-out$result$publications %>% 
+out$result$publications %>%
   select(pmid, journal, year)
 ```
 
 ```
 #> Source: local data frame [5 x 3]
-#> 
+#>
 #>       pmid
 #> 1 12944235
 #> 2  8789268
@@ -200,7 +200,7 @@ out[1:20]
 ```
 #>  [1] "21386829" "16519442" "23675629" "15968000" "16934686" "10318977"
 #>  [7] "16373573" "22360771" "9593639"  "11108151" "19723695" "18410446"
-#> [13] "23551690" "17251587" "22992046" "12554767" "11146662" "8909298" 
+#> [13] "23551690" "17251587" "22992046" "12554767" "11146662" "8909298"
 #> [19] "9503219"  "11006278"
 ```
 
@@ -215,7 +215,7 @@ lapply(arts, "[[", "title")
 ```
 #> [[1]]
 #> [1] "Lamellar gels and spontaneous vesicles in catanionic surfactant mixtures."
-#> 
+#>
 #> [[2]]
 #> [1] "Molecular pathways underlying IBD-associated colorectal neoplasia: therapeutic implications."
 ```
@@ -234,7 +234,7 @@ out$query
 #> $clauses
 #>   category property    query expansion id quoted require forbid
 #> 1       NA       NA cellular      NULL NA  FALSE   FALSE  FALSE
-#> 
+#>
 #> $operator
 #> [1] "AND"
 ```
@@ -277,7 +277,7 @@ out$result$result
 
 ```
 #> Source: local data frame [20 x 11]
-#> 
+#>
 #>                                                     Gene
 #> 1        nuclear receptor subfamily 1, group H, member 4
 #> 2    scratch homolog 1, zinc finger protein (Drosophila)
@@ -310,5 +310,6 @@ out$result$result
 * Please [report any issues or bugs](https://github.com/ropensci/rif/issues).
 * License: MIT
 * Get citation information for `rif` in R doing `citation(package = 'rif')`
+* Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md). By participating in this project you agree to abide by its terms.
 
 [![ro_footer](http://ropensci.org/public_images/github_footer.png)](http://ropensci.org)
