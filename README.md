@@ -4,6 +4,7 @@ rif
 
 
 [![Build Status](https://api.travis-ci.org/ropensci/rif.png)](https://travis-ci.org/ropensci/rif)
+[![codecov.io](https://codecov.io/github/ropensci/rif/coverage.svg?branch=master)](https://codecov.io/github/ropensci/rif?branch=master)
 
 R client for the [Neuroscience Information Framework](http://www.neuinfo.org/) APIs.
 
