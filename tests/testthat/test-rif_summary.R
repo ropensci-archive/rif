@@ -1,7 +1,7 @@
 context("rif_summary")
 
 test_that("rif_summary", {
-  tt <- rif_summary("neuron")
+  tt <- rif_summary("cellular")
   
   expect_is(tt, "list")
   expect_is(tt$result, "list")
