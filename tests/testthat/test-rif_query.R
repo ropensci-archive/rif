@@ -11,4 +11,4 @@ test_that("rif_query", {
   expect_is(tt$clauses[[1]]$require, "logical")
   expect_is(tt$clauses[[1]]$forbid, "logical")
   expect_match(tt$operator, "AND")
-  })
+})
