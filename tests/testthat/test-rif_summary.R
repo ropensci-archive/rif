@@ -11,4 +11,4 @@ test_that("rif_summary", {
   expect_is(tt$query$clauses, "data.frame")
   expect_equal(tt$query$operator, "AND")
   expect_is(tt$messages, "list")
-  })
+})
