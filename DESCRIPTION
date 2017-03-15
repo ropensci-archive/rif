@@ -1,7 +1,7 @@
 Package: rif
 Title: Client for 'Neuroscience' Information Framework 'APIs'
 Description: Client for 'Neuroscience' Information Framework 'APIs'.
-Version: 0.0.6.9400
+Version: 0.0.7.9100
 License: MIT + file LICENSE
 Authors@R: person("Scott", "Chamberlain", role = c("aut", "cre"), email =
     "myrmecocystus@gmail.com")
@@ -12,6 +12,7 @@ Imports:
     httr,
     dplyr
 Suggests:
-    roxygen2,
+    roxygen2 (>= 6.0.1),
     testthat,
     knitr
+RoxygenNote: 6.0.1
