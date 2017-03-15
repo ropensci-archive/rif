@@ -8,8 +8,8 @@ rif
 
 R client for the [Neuroscience Information Framework](https://www.neuinfo.org/) APIs.
 
-* API docs at [http://nif-services.neuinfo.org/servicesv1/](http://nif-services.neuinfo.org/servicesv1/)
-* Various clients at [http://nif-services.neuinfo.org/servicesv1/downloads.html](http://nif-services.neuinfo.org/servicesv1/downloads.html)
+* API docs at <http://nif-services.neuinfo.org/servicesv1/>
+* Various clients at <http://nif-services.neuinfo.org/servicesv1/downloads.html>
 
 ## Installation
 
@@ -70,16 +70,16 @@ rif_query_categories()
 ```
 
 ```
-#>  [1] "anatomy"             "antibody"            "catalognumber"      
-#>  [4] "cell"                "coordinate"          "disease"            
-#>  [7] "environment"         "fulltext"            "function"           
-#> [10] "gene"                "genetargetreagent"   "genomiclocus"       
-#> [13] "genomiclocusvariant" "genotype"            "identifier"         
-#> [16] "interaction"         "interactiontype"     "moleculardomain"    
-#> [19] "molecule"            "organism"            "pathway"            
-#> [22] "phenotype"           "protocol"            "publication"        
-#> [25] "quality"             "resource"            "sequence"           
-#> [28] "sequencefeature"     "specimen"            "stage"              
+#>  [1] "anatomy"             "antibody"            "catalognumber"
+#>  [4] "cell"                "coordinate"          "disease"
+#>  [7] "environment"         "fulltext"            "function"
+#> [10] "gene"                "genetargetreagent"   "genomiclocus"
+#> [13] "genomiclocusvariant" "genotype"            "identifier"
+#> [16] "interaction"         "interactiontype"     "moleculardomain"
+#> [19] "molecule"            "organism"            "pathway"
+#> [22] "phenotype"           "protocol"            "publication"
+#> [25] "quality"             "resource"            "sequence"
+#> [28] "sequencefeature"     "specimen"            "stage"
 #> [31] "strain"              "subcellularanatomy"
 ```
 
@@ -127,8 +127,8 @@ lexical_sentences(text)
 
 ```
 #> $sentence
-#> [1] "Lorem ipsum inceptos dolor nisi torquent porttitor donec, blandit scelerisquemattis cras quis mi, aliquam sagittis."                                                                                       
-#> [2] "Convallis placerat commodo imperdiet varius nunctempus urna vitae ultrices tristique eu mi ornare velit donec, posuere laoreet pretiumvitae porta augue porta feugiat in sapien egestas."                  
+#> [1] "Lorem ipsum inceptos dolor nisi torquent porttitor donec, blandit scelerisquemattis cras quis mi, aliquam sagittis."
+#> [2] "Convallis placerat commodo imperdiet varius nunctempus urna vitae ultrices tristique eu mi ornare velit donec, posuere laoreet pretiumvitae porta augue porta feugiat in sapien egestas."
 #> [3] "Quam odio nullam pulvinar litoracurabitur amet lacus sociosqu gravida ligula molestie dui netus fusce bibendumscelerisque, dictum malesuada proin elit etiam aliquam, mattis euismod donec nisl facilisis."
 ```
 
@@ -216,7 +216,7 @@ lapply(arts, "[[", "title")
 ```
 #> [[1]]
 #> [1] "Treatment of articulatory dysfunction in Parkinson's disease using repetitive transcranial magnetic stimulation."
-#> 
+#>
 #> [[2]]
 #> [1] "Molecular pathways underlying IBD-associated colorectal neoplasia: therapeutic implications."
 ```
@@ -235,7 +235,7 @@ out$query
 #> $clauses
 #>   category property    query expansion id quoted require forbid
 #> 1       NA       NA cellular      NULL NA  FALSE   FALSE  FALSE
-#> 
+#>
 #> $operator
 #> [1] "AND"
 ```

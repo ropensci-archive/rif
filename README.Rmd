@@ -15,8 +15,8 @@ knitr::opts_chunk$set(
 
 R client for the [Neuroscience Information Framework](https://www.neuinfo.org/) APIs.
 
-* API docs at [http://nif-services.neuinfo.org/servicesv1/](http://nif-services.neuinfo.org/servicesv1/)
-* Various clients at [http://nif-services.neuinfo.org/servicesv1/downloads.html](http://nif-services.neuinfo.org/servicesv1/downloads.html)
+* API docs at <http://nif-services.neuinfo.org/servicesv1/>
+* Various clients at <http://nif-services.neuinfo.org/servicesv1/downloads.html>
 
 ## Installation
 
