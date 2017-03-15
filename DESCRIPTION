@@ -1,8 +1,8 @@
 Package: rif
 Title: Client for 'Neuroscience' Information Framework 'APIs'
-Description: Client for 'Neuroscience' Information Framework (NIF) 'APIs'
+Description: Client for 'Neuroscience' Information Framework ('NIF') 'APIs'
     (<https://neuinfo.org/>; <http://nif-services.neuinfo.org/servicesv1/>).
-    Package includes functions for each API route, and gives back data
+    Package includes functions for each 'API' route, and gives back data
     in tidy data.frame format.
 Version: 0.1.0
 License: MIT + file LICENSE
