@@ -314,4 +314,4 @@ out$result$result
 * Get citation information for `rif` in R doing `citation(package = 'rif')`
 * Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md). By participating in this project you agree to abide by its terms.
 
-[![ro_footer](http://ropensci.org/public_images/github_footer.png)](http://ropensci.org)
+[![ro_footer](https://ropensci.org/public_images/github_footer.png)](https://ropensci.org)
