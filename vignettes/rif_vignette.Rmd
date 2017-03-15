@@ -1,36 +1,48 @@
-rif
-===
+---
+title: "Introduction to the rif package"
+author: "Scott Chamberlain"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    theme: readable
+vignette: >
+  %\VignetteIndexEntry{Introduction to the rif package}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
 
 ```{r echo=FALSE}
 knitr::opts_chunk$set(
   comment = "#>",
-  collapse = FALSE,
+  collapse = TRUE,
   warning = FALSE,
   message = FALSE
 )
 ```
 
-[![Build Status](https://api.travis-ci.org/ropensci/rif.png)](https://travis-ci.org/ropensci/rif)
-[![codecov.io](https://codecov.io/github/ropensci/rif/coverage.svg?branch=master)](https://codecov.io/github/ropensci/rif?branch=master)
-
-R client for the [Neuroscience Information Framework](https://www.neuinfo.org/) APIs.
+`rif` is an R wrapper for the [Neuroscience Information Framework (NIF)](https://www.neuinfo.org/)  APIs.
 
 * API docs at [http://nif-services.neuinfo.org/servicesv1/](http://nif-services.neuinfo.org/servicesv1/)
 * Various clients at [http://nif-services.neuinfo.org/servicesv1/downloads.html](http://nif-services.neuinfo.org/servicesv1/downloads.html)
 
-## Installation
+## Install
 
-Install development version from GitHub (not on CRAN yet)
+Stable `rif` version from CRAN
 
 ```{r eval=FALSE}
-install.packages("devtools")
+install.packages("rif")
+```
+
+Or, the development version from Github
+
+```{r eval=FALSE}
 devtools::install_github("ropensci/rif")
 ```
 
-Load `rif`
-
 ```{r}
-library('rif')
+library("rif")
 ```
 
 ## Summary
@@ -93,10 +105,7 @@ head(lexical_entities(text))
 Search
 
 ```{r}
-library("dplyr")
-out <- literature_search(query = "cellular", count = 5)
-out$result$publications %>%
-  select(pmid, journal, year)
+literature_search(query = "cellular", count = 5)
 ```
 
 Get retractions
@@ -129,12 +138,3 @@ Get some data
 out <- federation_data(id = "nlx_152871-2")
 out$result$result
 ```
-
-## Meta
-
-* Please [report any issues or bugs](https://github.com/ropensci/rif/issues).
-* License: MIT
-* Get citation information for `rif` in R doing `citation(package = 'rif')`
-* Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md). By participating in this project you agree to abide by its terms.
-
-[![ro_footer](http://ropensci.org/public_images/github_footer.png)](http://ropensci.org)

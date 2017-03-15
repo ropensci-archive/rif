@@ -1,12 +1,12 @@
 rif
-=========
+===
 
 
 
 [![Build Status](https://api.travis-ci.org/ropensci/rif.png)](https://travis-ci.org/ropensci/rif)
 [![codecov.io](https://codecov.io/github/ropensci/rif/coverage.svg?branch=master)](https://codecov.io/github/ropensci/rif?branch=master)
 
-R client for the [Neuroscience Information Framework](http://www.neuinfo.org/) APIs.
+R client for the [Neuroscience Information Framework](https://www.neuinfo.org/) APIs.
 
 * API docs at [http://nif-services.neuinfo.org/servicesv1/](http://nif-services.neuinfo.org/servicesv1/)
 * Various clients at [http://nif-services.neuinfo.org/servicesv1/downloads.html](http://nif-services.neuinfo.org/servicesv1/downloads.html)
@@ -37,26 +37,26 @@ head(out$result$federationSummary$results)
 ```
 
 ```
-#>   parentCategory   category                        db            indexable
-#> 1   System Level   Molecule              PeptideAtlas             MassSpec
-#> 2   Type of Data  Phenotype                      IMPC   KnockoutPhenotypes
-#> 3   Type of Data  Cell line Coriell Cell Repositories                NIGMS
-#> 4   System Level       Cell Coriell Cell Repositories                NIGMS
-#> 5   Type of Data Expression                       GEO MicroarrayExperiment
-#> 6   Type of Data Microarray                       GEO MicroarrayExperiment
-#>              nifId count totalCount snippets
-#> 1 nif-0000-03266-2     4         76     NULL
-#> 2     nlx_151660-1     2      11373     NULL
-#> 3 nif-0000-00182-2    11       9854     NULL
-#> 4 nif-0000-00182-2    11       9854     NULL
-#> 5 nif-0000-00142-1  4340      68725     NULL
-#> 6 nif-0000-00142-1  4340      68725     NULL
+#>   parentCategory    category                        db
+#> 1    Entity Type    Molecule              PeptideAtlas
+#> 2   Type of Data   Phenotype                      IMPC
+#> 3   Type of Data   Cell line Coriell Cell Repositories
+#> 4    Entity Type        Cell Coriell Cell Repositories
+#> 5   Type of Data Biospecimen Coriell Cell Repositories
+#> 6   Type of Data  Expression                       GEO
+#>              indexable            nifId count totalCount snippets
+#> 1             MassSpec nif-0000-03266-2     4         76     NULL
+#> 2   KnockoutPhenotypes     nlx_151660-1     3      22344     NULL
+#> 3                NIGMS nif-0000-00182-2    11      12986     NULL
+#> 4                NIGMS nif-0000-00182-2    11      12986     NULL
+#> 5                NIGMS nif-0000-00182-2    11      12986     NULL
+#> 6 MicroarrayExperiment nif-0000-00142-1  4340      68725     NULL
 #>                             summaryString
 #> 1            PeptideAtlas: MassSpec (4)[]
-#> 2          IMPC: KnockoutPhenotypes (2)[]
+#> 2          IMPC: KnockoutPhenotypes (3)[]
 #> 3 Coriell Cell Repositories: NIGMS (11)[]
 #> 4 Coriell Cell Repositories: NIGMS (11)[]
-#> 5      GEO: MicroarrayExperiment (4340)[]
+#> 5 Coriell Cell Repositories: NIGMS (11)[]
 #> 6      GEO: MicroarrayExperiment (4340)[]
 ```
 
@@ -70,16 +70,16 @@ rif_query_categories()
 ```
 
 ```
-#>  [1] "anatomy"             "antibody"            "catalognumber"
-#>  [4] "cell"                "coordinate"          "disease"
-#>  [7] "environment"         "fulltext"            "function"
-#> [10] "gene"                "genetargetreagent"   "genomiclocus"
-#> [13] "genomiclocusvariant" "genotype"            "identifier"
-#> [16] "interaction"         "interactiontype"     "moleculardomain"
-#> [19] "molecule"            "organism"            "pathway"
-#> [22] "phenotype"           "protocol"            "publication"
-#> [25] "quality"             "resource"            "sequence"
-#> [28] "sequencefeature"     "specimen"            "stage"
+#>  [1] "anatomy"             "antibody"            "catalognumber"      
+#>  [4] "cell"                "coordinate"          "disease"            
+#>  [7] "environment"         "fulltext"            "function"           
+#> [10] "gene"                "genetargetreagent"   "genomiclocus"       
+#> [13] "genomiclocusvariant" "genotype"            "identifier"         
+#> [16] "interaction"         "interactiontype"     "moleculardomain"    
+#> [19] "molecule"            "organism"            "pathway"            
+#> [22] "phenotype"           "protocol"            "publication"        
+#> [25] "quality"             "resource"            "sequence"           
+#> [28] "sequencefeature"     "specimen"            "stage"              
 #> [31] "strain"              "subcellularanatomy"
 ```
 
@@ -94,9 +94,9 @@ vocabulary_search("cell", limit = 3)
 
 ```
 #>                                   uuid    term           id category
-#> 1 1bbad62f-b412-41a4-9018-e1ffd5c4b335    cell NEMO_9559000     cell
-#> 2 69ca235c-b002-48d1-b0e5-6af148397f26    cell   GO_0005623     cell
-#> 3 3dab9b07-6a44-4822-b5cf-34dab10db8f7 On cell    nifext_32     Cell
+#> 1 c2aad6c6-a2b8-4818-b2c8-5271dd5f431c    cell NEMO_9559000     cell
+#> 2 439b50ba-d1a6-4b4c-bbfd-d1d61d74ba69    cell   GO_0005623     cell
+#> 3 8ddd9932-4e66-4a25-84af-237c0784cef4 On cell    nifext_32     Cell
 #>   provider inferred acronym abbreviation synonyms definition
 #> 1   NIFSTD    FALSE   FALSE        FALSE       NA         NA
 #> 2   NIFSTD    FALSE   FALSE        FALSE       NA         NA
@@ -127,8 +127,8 @@ lexical_sentences(text)
 
 ```
 #> $sentence
-#> [1] "Lorem ipsum inceptos dolor nisi torquent porttitor donec, blandit scelerisquemattis cras quis mi, aliquam sagittis."
-#> [2] "Convallis placerat commodo imperdiet varius nunctempus urna vitae ultrices tristique eu mi ornare velit donec, posuere laoreet pretiumvitae porta augue porta feugiat in sapien egestas."
+#> [1] "Lorem ipsum inceptos dolor nisi torquent porttitor donec, blandit scelerisquemattis cras quis mi, aliquam sagittis."                                                                                       
+#> [2] "Convallis placerat commodo imperdiet varius nunctempus urna vitae ultrices tristique eu mi ornare velit donec, posuere laoreet pretiumvitae porta augue porta feugiat in sapien egestas."                  
 #> [3] "Quam odio nullam pulvinar litoracurabitur amet lacus sociosqu gravida ligula molestie dui netus fusce bibendumscelerisque, dictum malesuada proin elit etiam aliquam, mattis euismod donec nisl facilisis."
 ```
 
@@ -179,15 +179,15 @@ out$result$publications %>%
 ```
 
 ```
-#> Source: local data frame [5 x 3]
-#>
+#> # A tibble: 5 × 3
 #>       pmid
+#> *    <chr>
 #> 1 12944235
-#> 2  8789268
-#> 3  2987169
-#> 4 15088773
-#> 5 22482413
-#> Variables not shown: journal (chr), year (int)
+#> 2 27417120
+#> 3  8789268
+#> 4  2987169
+#> 5 15088773
+#> # ... with 2 more variables: journal <chr>, year <int>
 ```
 
 Get retractions
@@ -199,10 +199,10 @@ out[1:20]
 ```
 
 ```
-#>  [1] "21386829" "16519442" "23675629" "15968000" "16934686" "10318977"
-#>  [7] "16373573" "22360771" "9593639"  "11108151" "19723695" "18410446"
-#> [13] "23551690" "17251587" "22992046" "12554767" "11146662" "8909298"
-#> [19] "9503219"  "11006278"
+#>  [1] "21386829" "21967191" "16519442" "23675629" "15968000" "16934686"
+#>  [7] "10318977" "16373573" "22360771" "9593639"  "19723695" "11108151"
+#> [13] "18410446" "17251587" "23551690" "26389933" "27163758" "22992046"
+#> [19] "12554767" "11146662"
 ```
 
 Then get info on some articles
@@ -215,8 +215,8 @@ lapply(arts, "[[", "title")
 
 ```
 #> [[1]]
-#> [1] "Lamellar gels and spontaneous vesicles in catanionic surfactant mixtures."
-#>
+#> [1] "Treatment of articulatory dysfunction in Parkinson's disease using repetitive transcranial magnetic stimulation."
+#> 
 #> [[2]]
 #> [1] "Molecular pathways underlying IBD-associated colorectal neoplasia: therapeutic implications."
 ```
@@ -235,7 +235,7 @@ out$query
 #> $clauses
 #>   category property    query expansion id quoted require forbid
 #> 1       NA       NA cellular      NULL NA  FALSE   FALSE  FALSE
-#>
+#> 
 #> $operator
 #> [1] "AND"
 ```
@@ -245,26 +245,26 @@ head(out$result$results)
 ```
 
 ```
-#>   parentCategory   category                        db            indexable
-#> 1   System Level   Molecule              PeptideAtlas             MassSpec
-#> 2   Type of Data  Phenotype                      IMPC   KnockoutPhenotypes
-#> 3   Type of Data  Cell line Coriell Cell Repositories                NIGMS
-#> 4   System Level       Cell Coriell Cell Repositories                NIGMS
-#> 5   Type of Data Expression                       GEO MicroarrayExperiment
-#> 6   Type of Data Microarray                       GEO MicroarrayExperiment
-#>              nifId count totalCount snippets
-#> 1 nif-0000-03266-2     4         76     NULL
-#> 2     nlx_151660-1     2      11373     NULL
-#> 3 nif-0000-00182-2    11       9854     NULL
-#> 4 nif-0000-00182-2    11       9854     NULL
-#> 5 nif-0000-00142-1  4340      68725     NULL
-#> 6 nif-0000-00142-1  4340      68725     NULL
+#>   parentCategory    category                        db
+#> 1    Entity Type    Molecule              PeptideAtlas
+#> 2   Type of Data   Phenotype                      IMPC
+#> 3   Type of Data   Cell line Coriell Cell Repositories
+#> 4   Type of Data Biospecimen Coriell Cell Repositories
+#> 5    Entity Type        Cell Coriell Cell Repositories
+#> 6   Type of Data  Expression                       GEO
+#>              indexable            nifId count totalCount snippets
+#> 1             MassSpec nif-0000-03266-2     4         76     NULL
+#> 2   KnockoutPhenotypes     nlx_151660-1     3      22344     NULL
+#> 3                NIGMS nif-0000-00182-2    11      12986     NULL
+#> 4                NIGMS nif-0000-00182-2    11      12986     NULL
+#> 5                NIGMS nif-0000-00182-2    11      12986     NULL
+#> 6 MicroarrayExperiment nif-0000-00142-1  4340      68725     NULL
 #>                             summaryString
 #> 1            PeptideAtlas: MassSpec (4)[]
-#> 2          IMPC: KnockoutPhenotypes (2)[]
+#> 2          IMPC: KnockoutPhenotypes (3)[]
 #> 3 Coriell Cell Repositories: NIGMS (11)[]
 #> 4 Coriell Cell Repositories: NIGMS (11)[]
-#> 5      GEO: MicroarrayExperiment (4340)[]
+#> 5 Coriell Cell Repositories: NIGMS (11)[]
 #> 6      GEO: MicroarrayExperiment (4340)[]
 ```
 
@@ -277,33 +277,34 @@ out$result$result
 ```
 
 ```
-#> Source: local data frame [20 x 11]
-#>
-#>                                                     Gene
-#> 1        nuclear receptor subfamily 1, group H, member 4
-#> 2    scratch homolog 1, zinc finger protein (Drosophila)
-#> 3                                      myogenic factor 5
-#> 4                                         ALX homeobox 1
-#> 5                        frizzled homolog 6 (Drosophila)
-#> 6                                            homeobox A3
-#> 7                                            cadherin 11
-#> 8             interleukin-1 receptor-associated kinase 1
-#> 9  tumor necrosis factor receptor superfamily, member 18
-#> 10                         four and a half LIM domains 4
-#> 11                             folate receptor 1 (adult)
-#> 12                                            syndecan 3
-#> 13                   fibroblast growth factor receptor 2
-#> 14                           IKAROS family zinc finger 2
-#> 15                 guanylate cyclase 1, soluble, alpha 3
-#> 16                           estrogen receptor 1 (alpha)
-#> 17                            transmembrane protein 184a
-#> 18               developmental pluripotency associated 4
-#> 19                                 mesenchyme homeobox 2
-#> 20           POU domain, class 2, transcription factor 2
-#> Variables not shown: Anatomical.Component (chr), Assay.Type (chr),
-#>   Theiler.Stage (chr), Tissue (chr), Expression.Strength (chr),
-#>   Expression.Pattern (chr), Expression.Pattern.Location (chr), Authors
-#>   (chr), Notes (chr), Source (chr)
+#> # A tibble: 20 × 11
+#>                                                                           Gene
+#>                                                                          <chr>
+#> 1                                              B cell CLL/lymphoma 6, member B
+#> 2                                                    cyclin-dependent kinase 4
+#> 3                           calcium channel, voltage-dependent, beta 2 subunit
+#> 4                                                                     clarin 3
+#> 5                                                                       afamin
+#> 6                                          Fas death domain-associated protein
+#> 7                                                       ring finger protein 14
+#> 8                                 DnaJ (Hsp40) homolog, subfamily C, member 21
+#> 9                                        protein inhibitor of activated STAT 1
+#> 10                                                     erythropoietin receptor
+#> 11 COP9 (constitutive photomorphogenic) homolog, subunit 3 (Arabidopsis thalia
+#> 12                       proteasome (prosome, macropain) 26S subunit, ATPase 2
+#> 13                                           speedy homolog A (Xenopus laevis)
+#> 14                                                            apolipoprotein M
+#> 15                                                     zinc finger protein 623
+#> 16                                            P450 (cytochrome) oxidoreductase
+#> 17                                                     erythropoietin receptor
+#> 18                                                      zinc and ring finger 1
+#> 19              solute carrier family 13 (sodium/sulfate symporters), member 1
+#> 20                                                snail homolog 2 (Drosophila)
+#> # ... with 10 more variables: Anatomical.Component <chr>,
+#> #   Assay.Type <chr>, Theiler.Stage <chr>, Tissue <chr>,
+#> #   Expression.Strength <chr>, Expression.Pattern <chr>,
+#> #   Expression.Pattern.Location <chr>, Authors <chr>, Notes <chr>,
+#> #   Source <chr>
 ```
 
 ## Meta
