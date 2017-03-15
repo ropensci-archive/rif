@@ -7,7 +7,7 @@ Description: Client for 'Neuroscience' Information Framework ('NIF') 'APIs'
 Version: 0.1.0
 License: MIT + file LICENSE
 Authors@R: person("Scott", "Chamberlain", role = c("aut", "cre"), email =
-    "myrmecocystus@gmail.com")
+    "myrmecocystus+r@gmail.com")
 URL: https://github.com/ropensci/rif
 BugReports: https://github.com/ropensci/rif/issues
 VignetteBuilder: knitr
