@@ -5,4 +5,5 @@ man-roxygen
 .travis.yml
 ^CONDUCT\.md$
 .github
+cran-comments.md
 
