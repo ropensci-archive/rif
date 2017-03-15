@@ -101,7 +101,8 @@ parse_rows <- function(x){
 
 parse_meta <- function(x){
   claus <- x$clauses[[1]]
-  claus[sapply(claus, function(x) is.null(x) || length(x) == 0)] <- NA
+  claus[
+    vapply(claus, function(x) is.null(x) || length(x) == 0, logical(1))] <- NA
   df <- data.frame(claus, stringsAsFactors = FALSE)
   op <- x$operator
   if (!is.null(op)) {
