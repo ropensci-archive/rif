@@ -26,7 +26,7 @@
 literature_mlpmid <- function(pmid, offset = 0, count = 20, authorFilter = NULL,
                               yearFilter = NULL, journalFilter = NULL, ...) {
 
-  pmids <- args <- setNames(as.list(pmid), rep("pmid", length(pmid)))
+  pmids <- args <- stats::setNames(as.list(pmid), rep("pmid", length(pmid)))
   args <- nc(list(offset = offset, count = count,
                   authorFilter = authorFilter, yearFilter = yearFilter,
                   journalFilter = journalFilter))

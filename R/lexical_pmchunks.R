@@ -12,7 +12,7 @@
 #' }
 
 lexical_pmchunks <- function(pmid, ...) {
-  args <- setNames(as.list(pmid), rep("pmid", length(pmid)))
+  args <- stats::setNames(as.list(pmid), rep("pmid", length(pmid)))
   start_end(nif_parse(
     nif_GET(file.path(nifbase(), "lexical/pmChunks"), args, accept_json(), ...),
     TRUE
