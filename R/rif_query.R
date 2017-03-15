@@ -15,7 +15,8 @@ rif_query <- function(query, expandSynonyms = TRUE, expandAcronyms = FALSE,
                       expandAbbrevs = FALSE, expandInferred = TRUE, ...) {
 
   args <- nc(list(q = query, expandSynonyms = al(expandSynonyms),
-                  expandAcronyms = al(expandAcronyms), expandAbbrevs = al(expandAbbrevs),
+                  expandAcronyms = al(expandAcronyms),
+                  expandAbbrevs = al(expandAbbrevs),
                   expandInferred = al(expandInferred)))
   nif_parse(
     nif_GET("query", args, ...),

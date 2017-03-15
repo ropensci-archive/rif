@@ -18,8 +18,9 @@ federation_facet(id, query = NULL, strict = FALSE, subclassQuery = NULL,
 \item{strict}{(logical) Only consider more relevant columns.
 Default: \code{FALSE}}
 
-\item{subclassQuery}{(character) An known ID to query with subclass axiom entailment (include all
-subclasses in the search). This can be combined with the "query" parameter.}
+\item{subclassQuery}{(character) An known ID to query with subclass axiom
+entailment (include all subclasses in the search). This can be combined
+with the "query" parameter.}
 
 \item{expandSynonyms}{(logical) Should recognized terms in the query have synonyms
 expanded? Default: \code{TRUE}}
@@ -39,15 +40,18 @@ expanded? Default: \code{TRUE}}
 
 \item{facet}{(character) Facets specified like facetName:facetValue    query}
 
-\item{filter}{(character) Filters specified like columnName:filterValue. If the column is declared
-numeric then the filterValue can be a range expression (ie: >24.3).    query}
+\item{filter}{(character) Filters specified like columnName:filterValue. If
+the column is declared numeric then the filterValue can be a range
+expression (ie: >24.3)}
 
-\item{orMultiFacets}{(logical) True if multiple facet values for the same facet are specified in the
-query and should be ORed together. Defaults to AND.    query    false}
+\item{orMultiFacets}{(logical) True if multiple facet values for the same
+facet are specified in the query and should be ORed together. Defaults
+to "AND"}
 
-\item{subclassFilters}{(character) Filter specified like columnName:parentId where parentId is a known
-ID. All subclasses of parentID will be included in the filter. This parameter may be
-combined with "filter".    query}
+\item{subclassFilters}{(character) Filter specified like
+columnName:parentId where parentId is a known ID. All subclasses of
+parentID will be included in the filter. This parameter may be
+combined with "filter".}
 
 \item{...}{Curl options passed on to \code{\link[httr]{GET}}}
 }

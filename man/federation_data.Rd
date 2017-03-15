@@ -17,10 +17,12 @@ federation_data(id, query = NULL, strict = FALSE, subclassQuery = NULL,
 
 \item{query}{Query terms}
 
-\item{strict}{(logical) Only consider more relevant columns. Default: \code{FALSE}}
+\item{strict}{(logical) Only consider more relevant columns.
+Default: \code{FALSE}}
 
-\item{subclassQuery}{(character) An known ID to query with subclass axiom entailment (include all
-subclasses in the search). This can be combined with the "query" parameter.}
+\item{subclassQuery}{(character) An known ID to query with subclass
+axiom entailment (include all subclasses in the search). This can be
+combined with the "query" parameter.}
 
 \item{expandSynonyms}{(logical) Should recognized terms in the query have synonyms
 expanded? Default: \code{TRUE}}
@@ -34,35 +36,37 @@ expanded? Default: \code{TRUE}}
 
 \item{highlight}{(logical) Highlight ...}
 
-\item{sortField}{(character) The field to sort by    query}
+\item{sortField}{(character) The field to sort by}
 
-\item{sortAsc}{(logical) Sort ascending?    query    true}
+\item{sortAsc}{(logical) Sort ascending?}
 
-\item{offset}{(integer) The result (row) to start on    query    0}
+\item{offset}{(integer) The result (row) to start on}
 
-\item{count}{(integer) The number of results (rows) to return    query    20}
+\item{count}{(integer) The number of results (rows) to return}
 
-\item{project}{(character) The columns to project (all by default)    query}
+\item{project}{(character) The columns to project (all by default)}
 
-\item{facet}{(character) Facets specified like facetName:facetValue    query}
+\item{facet}{(character) Facets specified like facetName:facetValue}
 
-\item{filter}{(character) Filters specified like columnName:filterValue. If the column is declared
-numeric then the filterValue can be a range expression (ie: >24.3).    query}
+\item{filter}{(character) Filters specified like columnName:filterValue.
+If the column is declared numeric then the filterValue can be a range
+expression (ie: >24.3).}
 
-\item{subclassFilter}{(character) Filter specified like columnName:parentId where parentId is a known
-ID. All subclasses of parentID will be included in the filter. This parameter may be
-combined with "filter".    query}
+\item{subclassFilter}{(character) Filter specified like columnName:parentId
+where parentId is a known ID. All subclasses of parentID will be included
+in the filter. This parameter may be combined with "filter".}
 
-\item{includePrimaryData}{(logical) deprecated Should primary data be included in addition to the
-view? Please use the exportType option instead.    query    false}
+\item{includePrimaryData}{(logical) deprecated Should primary data be
+included in addition to the view? Please use the exportType option instead.}
 
-\item{exportType}{(character) The type of data to return: "display" (data suitable for a user interface -
-includes HTML), "data" (just the raw data used to include the view - may include more data
-than present in the view but will not include markup) "all" (include both display and data
-columns)    query    display}
+\item{exportType}{(character) The type of data to return: "display" (data
+suitable for a user interface - includes HTML), "data" (just the raw data
+used to include the view - may include more data than present in the view
+but will not include markup) "all" (include both display and data columns)}
 
-\item{orMultiFacets}{(logical) True if multiple facet values for the same facet are specified in the
-query and should be ORed together. Defaults to AND.    query    false}
+\item{orMultiFacets}{(logical) True if multiple facet values for the same
+facet are specified in the query and should be ORed together. Defaults to
+"AND"}
 
 \item{...}{Curl options passed on to \code{\link[httr]{GET}}}
 }

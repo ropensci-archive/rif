@@ -8,7 +8,8 @@ vocabulary(prefix = NULL, id = NULL, limit = 20, category = NULL,
   vocabulary = NULL, ...)
 }
 \arguments{
-\item{prefix, id}{(character) The prefix, or id of the term. Use one or the other}
+\item{prefix, id}{(character) The prefix, or id of the term. Use one or
+the other}
 
 \item{limit}{The number of candidates to return. Default: 20}
 

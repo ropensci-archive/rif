@@ -14,13 +14,15 @@ literature_search(query, offset = 0, count = 20, minDate = NULL,
 \arguments{
 \item{query}{Query terms}
 
-\item{offset}{(integer) The result (row) to start on    query    0}
+\item{offset}{(integer) The result (row) to start on}
 
 \item{count}{(integer) The number of results (rows) to return. Default: 20}
 
-\item{minDate}{The minimum date (a unix time value - milliseconds since 1970)}
+\item{minDate}{The minimum date (a unix time value - milliseconds
+since 1970)}
 
-\item{maxDate}{The maximum date (a unix time value - milliseconds since 1970)}
+\item{maxDate}{The maximum date (a unix time value - milliseconds
+since 1970)}
 
 \item{facetCount}{The facet count. Default: 0}
 
@@ -28,9 +30,11 @@ literature_search(query, offset = 0, count = 20, minDate = NULL,
 
 \item{minMatch}{The Solr minmatch percentage. Default: 60 percent}
 
-\item{searchFullText}{Should full text be included in the search? Default: \code{FALSE}}
+\item{searchFullText}{Should full text be included in the search?
+Default: \code{FALSE}}
 
-\item{requireFullText}{Should only full text be included in the search? Default: \code{FALSE}}
+\item{requireFullText}{Should only full text be included in the search?
+Default: \code{FALSE}}
 
 \item{authorFilter}{Author filters}
 

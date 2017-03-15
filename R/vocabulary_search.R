@@ -15,7 +15,9 @@
 #' vocabulary_search("cell", category = "biological_process")
 #' }
 
-vocabulary_search <- function(term, limit = 20, category = NULL, vocabulary = NULL, ...) {
+vocabulary_search <- function(term, limit = 20, category = NULL,
+                              vocabulary = NULL, ...) {
+
   args <- nc(list(term = term, limit = limit, category = category,
                   vocabulary = vocabulary))
   nif_parse(

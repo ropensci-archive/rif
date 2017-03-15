@@ -2,7 +2,8 @@
 #'
 #' @export
 #'
-#' @param prefix,id (character) The prefix, or id of the term. Use one or the other
+#' @param prefix,id (character) The prefix, or id of the term. Use one or
+#' the other
 #' @param limit The number of candidates to return. Default: 20
 #' @param category A category
 #' @param vocabulary A vocabulary

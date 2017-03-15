@@ -36,8 +36,12 @@ out$result$federationSummary$categories
 head(out$result$federationSummary$results)
 
 head( rif_summary("neuron")$result$federationSummary$results )
-head( rif_summary("neuron", expandSynonyms=FALSE)$result$federationSummary$results )
-head( rif_summary("neuron", expandAbbrevs=TRUE)$result$federationSummary$results )
+head(
+ rif_summary("neuron", expandSynonyms=FALSE)$result$federationSummary$results
+)
+head(
+ rif_summary("neuron", expandAbbrevs=TRUE)$result$federationSummary$results
+)
 
 rif_summary("cellular", verbose = TRUE)
 }
