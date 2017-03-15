@@ -28,9 +28,9 @@ literature_search(query, offset = 0, count = 20, minDate = NULL,
 
 \item{minMatch}{The Solr minmatch percentage. Default: 60 percent}
 
-\item{searchFullText}{Should full text be included in the search? Default: FALSE}
+\item{searchFullText}{Should full text be included in the search? Default: \code{FALSE}}
 
-\item{requireFullText}{Should only full text be included in the search? Default: FALSE}
+\item{requireFullText}{Should only full text be included in the search? Default: \code{FALSE}}
 
 \item{authorFilter}{Author filters}
 
@@ -52,9 +52,9 @@ expanded? Default: \code{TRUE}}
 \item{expandInferred}{(logical) Should recognized terms in the query have inferred terms
 expanded? Default: \code{TRUE}}
 
-\item{highlight}{(no documentation provided). Default: FALSE}
+\item{highlight}{(no documentation provided). Default: \code{FALSE}}
 
-\item{abstract}{(no documentation provided). Default: TRUE}
+\item{abstract}{(no documentation provided). Default: \code{TRUE}}
 
 \item{...}{Curl options passed on to \code{\link[httr]{GET}}}
 }

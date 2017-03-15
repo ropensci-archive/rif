@@ -3,7 +3,8 @@
 #' @export
 #'
 #' @param id (character) A dataset id
-#' @param strict (logical) Only consider more relevant columns. Default: \code{FALSE}
+#' @param strict (logical) Only consider more relevant columns.
+#' Default: `FALSE`
 #' @param subclassQuery	(character) An known ID to query with subclass axiom entailment (include all
 #' subclasses in the search). This can be combined with the "query" parameter.
 #' @param offset (integer) The result (row) to start on	query	0
@@ -43,11 +44,7 @@ federation_facet <- function(id, query = NULL, strict = FALSE, subclassQuery = N
                   offset = offset, count = count, facet = facet, filter = filter,
                   orMultiFacets = al(orMultiFacets), subclassFilters = subclassFilters))
   res <- nif_parse(
-    nif_GET(file.path(nifbase(), paste0("federation/facets/", id)), args, accept_json(), ...),
+    nif_GET(paste0("federation/facets/", id), args, ...),
     FALSE)
-  list(category = res[[1]]$category, facets = parse_facets(res[[1]]$facets))
-}
-
-parse_facets <- function(x){
-  rbind_all(lapply(x, data.frame, stringsAsFactors = FALSE))
+  list(category = res[[1]]$category, facets = parse_to_df(res[[1]]$facets))
 }

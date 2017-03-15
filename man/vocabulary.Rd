@@ -16,7 +16,7 @@ vocabulary(prefix = NULL, id = NULL, limit = 20, category = NULL,
 
 \item{vocabulary}{A vocabulary}
 
-\item{...}{Curl options passed on to \code{\link[httr]{GET}}}
+\item{...}{Curl options passed on to \code{\link[crul:HttpClient]{crul::HttpClient()}}}
 }
 \description{
 Vocabulary services - get terms that match a prefix

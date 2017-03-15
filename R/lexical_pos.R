@@ -3,7 +3,7 @@
 #' @export
 #'
 #' @param text (character) The source text
-#' @param ... Curl options passed on to \code{\link[httr]{GET}}
+#' @param ... Curl options passed on to [crul::HttpClient()]
 #' @family lexical
 #'
 #' @examples \dontrun{
@@ -19,7 +19,7 @@
 
 lexical_pos <- function(text, ...) {
   start_end(nif_parse(
-    nif_GET(file.path(nifbase(), "lexical/pos"), list(text = text), accept_json(), ...),
+    nif_GET("lexical/pos", list(text = text), ...),
     TRUE
   ))
 }

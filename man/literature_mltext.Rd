@@ -13,7 +13,7 @@ literature_mltext(text, offset = 0, count = 20, ...)
 
 \item{count}{(integer) The number of results (rows) to return. Default: 5}
 
-\item{...}{Curl options passed on to \code{\link[httr]{GET}}}
+\item{...}{Curl options passed on to \code{\link[crul:HttpClient]{crul::HttpClient()}}}
 }
 \description{
 Literature - more like text search
@@ -22,9 +22,6 @@ Literature - more like text search
 \dontrun{
 literature_mltext(text = "cellular")
 literature_mltext(text = "ecology", count = 200)
-library("dplyr")
-literature_mltext(text = "ecology", count = 200) \%>\%
-   select(pmid, title)
 }
 }
 \seealso{

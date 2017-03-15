@@ -7,7 +7,7 @@
 literature_retractions(...)
 }
 \arguments{
-\item{...}{Curl options passed on to \code{\link[httr]{GET}}}
+\item{...}{Curl options passed on to \code{\link[crul:HttpClient]{crul::HttpClient()}}}
 }
 \description{
 Search literature retractions

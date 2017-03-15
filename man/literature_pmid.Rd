@@ -9,7 +9,7 @@ literature_pmid(pmid, ...)
 \arguments{
 \item{pmid}{One or more PMID's in a vector or list}
 
-\item{...}{Curl options passed on to \code{\link[httr]{GET}}}
+\item{...}{Curl options passed on to \code{\link[crul:HttpClient]{crul::HttpClient()}}}
 }
 \description{
 Get articles by PMID

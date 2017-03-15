@@ -9,7 +9,7 @@ vocabulary_categories(vocabulary = NULL, ...)
 \arguments{
 \item{vocabulary}{A vocabulary}
 
-\item{...}{Curl options passed on to \code{\link[httr]{GET}}}
+\item{...}{Curl options passed on to \code{\link[crul:HttpClient]{crul::HttpClient()}}}
 }
 \description{
 Vocabulary services - get categories

@@ -8,8 +8,7 @@
 #' @examples \dontrun{
 #' rif_query(query = "anatomy")
 #'
-#' library("httr")
-#' rif_query("cellular", config = verbose())
+#' rif_query("cellular", verbose = TRUE)
 #' }
 
 rif_query <- function(query, expandSynonyms = TRUE, expandAcronyms = FALSE,
@@ -19,7 +18,7 @@ rif_query <- function(query, expandSynonyms = TRUE, expandAcronyms = FALSE,
                   expandAcronyms = al(expandAcronyms), expandAbbrevs = al(expandAbbrevs),
                   expandInferred = al(expandInferred)))
   nif_parse(
-    nif_GET(file.path(nifbase(), "query"), args, accept_json(), ...),
+    nif_GET("query", args, ...),
     FALSE
   )
 }

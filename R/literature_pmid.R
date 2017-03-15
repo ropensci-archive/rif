@@ -2,7 +2,7 @@
 #'
 #' @export
 #' @param pmid One or more PMID's in a vector or list
-#' @param ... Curl options passed on to \code{\link[httr]{GET}}
+#' @param ... Curl options passed on to [crul::HttpClient()]
 #' @family literature
 #' @examples \dontrun{
 #' # get PMIDs for retracted articles
@@ -16,6 +16,6 @@
 literature_pmid <- function(pmid, ...) {
   args <- stats::setNames(as.list(pmid), rep("pmid", length(pmid)))
   nif_parse(
-    nif_GET(file.path(nifbase(), "literature/pmid"), args, accept_json()), FALSE
+    nif_GET("literature/pmid", args, ...), FALSE
   )
 }

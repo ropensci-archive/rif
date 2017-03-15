@@ -1,10 +1,9 @@
 #' Federation data
 #'
 #' @export
-#' @importFrom dplyr rbind_all tbl_df
 #'
 #' @param id (character) A dataset id
-#' @param strict (logical) Only consider more relevant columns. Default: \code{FALSE}
+#' @param strict (logical) Only consider more relevant columns. Default: `FALSE`
 #' @param subclassQuery	(character) An known ID to query with subclass axiom entailment (include all
 #' subclasses in the search). This can be combined with the "query" parameter.
 #' @param highlight (logical) Highlight ...
@@ -42,8 +41,7 @@
 #'
 #' federation_data(id = "nlx_152871-2", query = "TS23")
 #'
-#' library("httr")
-#' federation_data("nlx_152871-2", config = verbose())
+#' federation_data("nlx_152871-2", verbose = TRUE)
 #' }
 
 federation_data <- function(id, query = NULL, strict = FALSE, subclassQuery = NULL, expandSynonyms = TRUE,
@@ -60,7 +58,7 @@ federation_data <- function(id, query = NULL, strict = FALSE, subclassQuery = NU
                   subclassFilter = subclassFilter, includePrimaryData = al(includePrimaryData),
                   exportType = exportType, orMultiFacets = al(orMultiFacets)))
   res <- nif_parse(
-    nif_GET(file.path(nifbase(), paste0("federation/data/", id)), args, accept_json(), ...),
+    nif_GET(paste0("federation/data/", id), args, ...),
   FALSE)
   res$result$result <- parse_result(res$result$result)
   res$result$results <- parse_rows(res$result$results$row)
@@ -68,10 +66,15 @@ federation_data <- function(id, query = NULL, strict = FALSE, subclassQuery = NU
   res
 }
 
-parse_result <- function(x){
-  tmp <- rbind_all(lapply(x, data.frame, stringsAsFactors = FALSE))
-  move_col(tmp, "Source")
+parse_to_df <- function(x) {
+  (xxxxxx <- data.table::setDF(data.table::rbindlist(
+    lapply(x, data.frame, stringsAsFactors = FALSE),
+    use.names = TRUE, fill = TRUE
+  )))
+  tibble::as_tibble(xxxxxx)
 }
+
+parse_result <- function(x) move_col(parse_to_df(x), "Source")
 
 parse_rows <- function(x){
   rows <- pluck(x, "data")
@@ -81,7 +84,9 @@ parse_rows <- function(x){
                            colClasses(do.call("rbind.data.frame", rows[[i]]), "character"),
                            stringsAsFactors  =  FALSE)
   }
-  rbind_all(out)
+  tibble::as_tibble(
+    data.table::setDF(data.table::rbindlist(out, use.names = TRUE, fill = TRUE))
+  )
 }
 
 parse_meta <- function(x){

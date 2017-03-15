@@ -15,7 +15,8 @@ federation_facet(id, query = NULL, strict = FALSE, subclassQuery = NULL,
 
 \item{query}{Query terms}
 
-\item{strict}{(logical) Only consider more relevant columns. Default: \code{FALSE}}
+\item{strict}{(logical) Only consider more relevant columns.
+Default: \code{FALSE}}
 
 \item{subclassQuery}{(character) An known ID to query with subclass axiom entailment (include all
 subclasses in the search). This can be combined with the "query" parameter.}

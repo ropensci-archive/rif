@@ -7,12 +7,15 @@ Authors@R: person("Scott", "Chamberlain", role = c("aut", "cre"), email =
     "myrmecocystus@gmail.com")
 URL: https://github.com/ropensci/rif
 BugReports: https://github.com/ropensci/rif/issues
+Roxygen: list(markdown = TRUE)
 Imports:
     jsonlite,
-    httr,
-    dplyr
+    crul (>= 0.3.0),
+    data.table,
+    tibble
 Suggests:
     roxygen2 (>= 6.0.1),
     testthat,
-    knitr
+    knitr,
+    covr
 RoxygenNote: 6.0.1

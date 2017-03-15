@@ -6,7 +6,7 @@
 #'
 #' @param query (character) Query terms
 #' @param limit The number of candidates to return. Default: 20
-#' @param ... Curl options passed on to \code{\link[httr]{GET}}
+#' @param ... Curl options passed on to [crul::HttpClient()]
 #' @family vocabulary
 #'
 #' @examples \dontrun{
@@ -16,7 +16,7 @@
 vocabulary_suggest <- function(query, limit = 10, ...) {
   args <- nc(list(q = query, limit = limit))
   nif_parse(
-    nif_GET(file.path(nifbase(), "vocabulary/suggest"), args, accept_json(), ...),
+    nif_GET("vocabulary/suggest", args, ...),
     TRUE
   )
 }

@@ -3,7 +3,7 @@
 #' @export
 #'
 #' @param pmid One or more PMID's in a vector or list
-#' @param ... Curl options passed on to \code{\link[httr]{GET}}
+#' @param ... Curl options passed on to [crul::HttpClient()]
 #' @family lexical
 #'
 #' @examples \dontrun{
@@ -14,7 +14,7 @@
 lexical_pmchunks <- function(pmid, ...) {
   args <- stats::setNames(as.list(pmid), rep("pmid", length(pmid)))
   start_end(nif_parse(
-    nif_GET(file.path(nifbase(), "lexical/pmChunks"), args, accept_json(), ...),
+    nif_GET("lexical/pmChunks", args, ...),
     TRUE
   ))
 }

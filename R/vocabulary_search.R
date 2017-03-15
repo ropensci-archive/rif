@@ -6,7 +6,7 @@
 #' @param limit The number of candidates to return. Default: 20
 #' @param category A category
 #' @param vocabulary A vocabulary
-#' @param ... Curl options passed on to \code{\link[httr]{GET}}
+#' @param ... Curl options passed on to [crul::HttpClient()]
 #' @family vocabulary
 #'
 #' @examples \dontrun{
@@ -19,7 +19,7 @@ vocabulary_search <- function(term, limit = 20, category = NULL, vocabulary = NU
   args <- nc(list(term = term, limit = limit, category = category,
                   vocabulary = vocabulary))
   nif_parse(
-    nif_GET(file.path(nifbase(), "vocabulary/search"), args, accept_json(), ...),
+    nif_GET("vocabulary/search", args, ...),
     TRUE
   )
 }

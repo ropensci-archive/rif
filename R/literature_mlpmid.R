@@ -8,7 +8,7 @@
 #' @param authorFilter  Author filters
 #' @param yearFilter  Year filters
 #' @param journalFilter Journal filters
-#' @param ... Curl options passed on to \code{\link[httr]{GET}}
+#' @param ... Curl options passed on to [crul::HttpClient()]
 #' @family literature
 #'
 #' @examples \dontrun{
@@ -18,9 +18,6 @@
 #' literature_mlpmid(pmid = out[1:3])
 #' literature_mlpmid(pmid = out[1:3], offset = 2)
 #' literature_mlpmid(pmid = out[1:3], count = 3)
-#' library("dplyr")
-#' literature_mlpmid(pmid = out[1:3], yearFilter = 2005) %>%
-#'    select(pmid, year)
 #' }
 
 literature_mlpmid <- function(pmid, offset = 0, count = 20, authorFilter = NULL,
@@ -31,9 +28,9 @@ literature_mlpmid <- function(pmid, offset = 0, count = 20, authorFilter = NULL,
                   authorFilter = authorFilter, yearFilter = yearFilter,
                   journalFilter = journalFilter))
   args <- c(pmids, args)
-  tbl_df(
+  tibble::as_tibble(
     nif_parse(
-      nif_GET(file.path(nifbase(), "literature/moreLikePmid"), args, accept_json(), ...),
+      nif_GET("literature/moreLikePmid", args, ...),
       TRUE)
   )
 }

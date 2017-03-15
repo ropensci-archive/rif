@@ -1,7 +1,7 @@
 #' Search literature retractions
 #'
 #' @export
-#' @param ... Curl options passed on to \code{\link[httr]{GET}}
+#' @param ... Curl options passed on to [crul::HttpClient()]
 #' @family literature
 #' @examples \dontrun{
 #' # get PMIDs for retracted articles
@@ -12,6 +12,6 @@
 
 literature_retractions <- function(...) {
   nif_parse(
-    nif_GET(file.path(nifbase(), "literature/retractions"), NULL, accept_json(), ...), TRUE
+    nif_GET("literature/retractions", NULL, ...), TRUE
   )[[1]]
 }

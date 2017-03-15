@@ -6,7 +6,7 @@
 #' @param limit The number of candidates to return. Default: 20
 #' @param category A category
 #' @param vocabulary A vocabulary
-#' @param ... Curl options passed on to \code{\link[httr]{GET}}
+#' @param ... Curl options passed on to [crul::HttpClient()]
 #' @family vocabulary
 #'
 #' @examples \dontrun{
@@ -29,8 +29,5 @@ vocabulary <- function(prefix = NULL, id = NULL, limit = 20,
   } else {
     file.path("vocabulary", id)
   }
-  nif_parse(
-    nif_GET(file.path(nifbase(), route), args, accept_json(), ...),
-    TRUE
-  )
+  tibble::as_tibble(nif_parse(nif_GET(route, args, ...), TRUE))
 }

@@ -9,15 +9,15 @@
 #' @param facetCount  The facet count. Default: 0
 #' @param snippetCount  The snippet count. Default: 0
 #' @param minMatch  The Solr minmatch percentage. Default: 60 percent
-#' @param searchFullText  Should full text be included in the search? Default: FALSE
-#' @param requireFullText Should only full text be included in the search? Default: FALSE
+#' @param searchFullText  Should full text be included in the search? Default: `FALSE`
+#' @param requireFullText Should only full text be included in the search? Default: `FALSE`
 #' @param authorFilter  Author filters
 #' @param yearFilter  Year filters
 #' @param journalFilter Journal filters
 #' @param sort  Use "date" to sort by date. Otherwise relevancy will be used.
 #' @param section Sections to search
-#' @param highlight (no documentation provided). Default: FALSE
-#' @param abstract  (no documentation provided). Default: TRUE
+#' @param highlight (no documentation provided). Default: `FALSE`
+#' @param abstract  (no documentation provided). Default: `TRUE`
 #' @template args
 #' @keywords family
 #'
@@ -48,8 +48,8 @@ literature_search <- function(query, offset = 0, count = 20, minDate = NULL, max
     expandAcronyms = al(expandAcronyms), expandAbbrevs = al(expandAbbrevs),
     expandInferred = al(expandInferred), highlight = highlight, abstract = abstract))
   res <- nif_parse(
-    nif_GET(file.path(nifbase(), "literature/search"), args, accept_json(), ...),
+    nif_GET("literature/search", args, ...),
     TRUE)
-  res$result$publications <- tbl_df(res$result$publications)
+  res$result$publications <- tibble::as_tibble(res$result$publications)
   return(res)
 }

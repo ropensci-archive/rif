@@ -16,7 +16,7 @@ vocabulary_search(term, limit = 20, category = NULL, vocabulary = NULL,
 
 \item{vocabulary}{A vocabulary}
 
-\item{...}{Curl options passed on to \code{\link[httr]{GET}}}
+\item{...}{Curl options passed on to \code{\link[crul:HttpClient]{crul::HttpClient()}}}
 }
 \description{
 Vocabulary services - Search for vocabulary terms and their metadata

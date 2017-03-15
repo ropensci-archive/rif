@@ -7,7 +7,7 @@
 rif_query_categories(...)
 }
 \arguments{
-\item{...}{Curl options passed on to \code{\link[httr]{GET}}}
+\item{...}{Curl options passed on to \code{\link[crul:HttpClient]{crul::HttpClient()}}}
 }
 \description{
 Query NIF data
@@ -15,9 +15,7 @@ Query NIF data
 \examples{
 \dontrun{
 rif_query_categories()
-
-library("httr")
-rif_query_categories(config = verbose())
+rif_query_categories(verbose = TRUE)
 }
 }
 \seealso{

@@ -1,11 +1,15 @@
-nifbase <- function() "http://nif-services.neuinfo.org/servicesv1/v1"
+nifbase <- function() "http://nif-services.neuinfo.org"
 
 nc <- function(l) Filter(Negate(is.null), l)
 
-nif_GET <- function(url, args, ...){
-  res <- GET(url, query = args, ...)
-  stop_for_status(res)
-  content(res, "text")
+nif_GET <- function(path, args, ...){
+  cli <- crul::HttpClient$new(
+    url = nifbase(),
+    headers = list(Accept = "application/json")
+  )
+  res <- cli$get(path = file.path("servicesv1/v1", path), query = args, ...)
+  res$raise_for_status()
+  res$parse("UTF-8")
 }
 
 nif_parse <- function(x, simplify=FALSE){

@@ -82,8 +82,7 @@ out$result$results
 
 federation_data(id = "nlx_152871-2", query = "TS23")
 
-library("httr")
-federation_data("nlx_152871-2", config = verbose())
+federation_data("nlx_152871-2", verbose = TRUE)
 }
 }
 \seealso{

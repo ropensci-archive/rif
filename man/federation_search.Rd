@@ -11,7 +11,8 @@ federation_search(query, strict = FALSE, snippetCount = 0,
 \arguments{
 \item{query}{Query terms}
 
-\item{strict}{(logical) Only consider more relevant columns. Default: \code{FALSE}}
+\item{strict}{(logical) Only consider more relevant columns.
+Default: \code{FALSE}}
 
 \item{snippetCount}{How many snippets to return. Default: 0}
 
@@ -43,8 +44,7 @@ head( federation_search("cellular")$result$results )
 head( federation_search("cellular", strict=TRUE)$result$results )
 federation_search("cellular", snippetCount=3)
 
-library("httr")
-federation_search("cellular", config=verbose())
+federation_search("cellular", verbose = TRUE)
 }
 }
 \seealso{

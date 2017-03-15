@@ -39,7 +39,6 @@ head( rif_summary("neuron")$result$federationSummary$results )
 head( rif_summary("neuron", expandSynonyms=FALSE)$result$federationSummary$results )
 head( rif_summary("neuron", expandAbbrevs=TRUE)$result$federationSummary$results )
 
-library("httr")
-rif_summary("cellular", config=verbose())
+rif_summary("cellular", verbose = TRUE)
 }
 }

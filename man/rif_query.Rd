@@ -29,8 +29,7 @@ Query NIF data
 \dontrun{
 rif_query(query = "anatomy")
 
-library("httr")
-rif_query("cellular", config = verbose())
+rif_query("cellular", verbose = TRUE)
 }
 }
 \seealso{

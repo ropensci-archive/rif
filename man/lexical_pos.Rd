@@ -9,7 +9,7 @@ lexical_pos(text, ...)
 \arguments{
 \item{text}{(character) The source text}
 
-\item{...}{Curl options passed on to \code{\link[httr]{GET}}}
+\item{...}{Curl options passed on to \code{\link[crul:HttpClient]{crul::HttpClient()}}}
 }
 \description{
 Lexical services - extract POS tags from input text
