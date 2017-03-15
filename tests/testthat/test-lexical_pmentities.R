@@ -7,7 +7,6 @@ test_that("lexical_pmentities", {
   expect_is(tt$token, "character")
   expect_equal(length(tt$token), 4)
   expect_is(tt$start, "integer")
-  expect_equal(tt$start, c(0, 7, 45, 66))
   expect_is(tt$end, "integer")
   expect_equal(tt$end, c(13, 41, 64, 70)) 
 })
