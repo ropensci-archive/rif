@@ -10,8 +10,12 @@ knitr::opts_chunk$set(
 )
 ```
 
+[![Project Status: Active - The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
 [![Build Status](https://api.travis-ci.org/ropensci/rif.png)](https://travis-ci.org/ropensci/rif)
 [![codecov.io](https://codecov.io/github/ropensci/rif/coverage.svg?branch=master)](https://codecov.io/github/ropensci/rif?branch=master)
+[![rstudio mirror downloads](https://cranlogs.r-pkg.org/badges/rif)](https://github.com/metacran/cranlogs.app)
+[![cran version](https://www.r-pkg.org/badges/version/rif)](https://cran.r-project.org/package=rif)
+
 
 R client for the [Neuroscience Information Framework](https://www.neuinfo.org/) APIs.
 
