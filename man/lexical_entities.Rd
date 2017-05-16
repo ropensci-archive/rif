@@ -4,10 +4,13 @@
 \alias{lexical_entities}
 \title{Lexical services - break into entities}
 \usage{
-lexical_entities(text, ...)
+lexical_entities(text, key = NULL, ...)
 }
 \arguments{
 \item{text}{(character) The source text}
+
+\item{key}{(character) API key. required either passed in here or save
+as an env var or R option. see \code{\link{rif}} and \code{\link{Startup}}}
 
 \item{...}{Curl options passed on to \code{\link[crul:HttpClient]{crul::HttpClient()}}}
 }

@@ -4,10 +4,13 @@
 \alias{lexical_pos}
 \title{Lexical services - extract POS tags from input text}
 \usage{
-lexical_pos(text, ...)
+lexical_pos(text, key = NULL, ...)
 }
 \arguments{
 \item{text}{(character) The source text}
+
+\item{key}{(character) API key. required either passed in here or save
+as an env var or R option. see \code{\link{rif}} and \code{\link{Startup}}}
 
 \item{...}{Curl options passed on to \code{\link[crul:HttpClient]{crul::HttpClient()}}}
 }

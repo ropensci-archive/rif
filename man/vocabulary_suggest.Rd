@@ -4,12 +4,15 @@
 \alias{vocabulary_suggest}
 \title{Vocabulary services - Get suggestions for terms}
 \usage{
-vocabulary_suggest(query, limit = 10, ...)
+vocabulary_suggest(query, limit = 10, key = NULL, ...)
 }
 \arguments{
 \item{query}{(character) Query terms}
 
 \item{limit}{The number of candidates to return. Default: 20}
+
+\item{key}{(character) API key. required either passed in here or save
+as an env var or R option. see \code{\link{rif}} and \code{\link{Startup}}}
 
 \item{...}{Curl options passed on to \code{\link[crul:HttpClient]{crul::HttpClient()}}}
 }

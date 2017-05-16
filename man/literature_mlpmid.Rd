@@ -5,7 +5,7 @@
 \title{Literature - more like PMID search}
 \usage{
 literature_mlpmid(pmid, offset = 0, count = 20, authorFilter = NULL,
-  yearFilter = NULL, journalFilter = NULL, ...)
+  yearFilter = NULL, journalFilter = NULL, key = NULL, ...)
 }
 \arguments{
 \item{pmid}{One or more PMID's in a vector or list}
@@ -19,6 +19,9 @@ literature_mlpmid(pmid, offset = 0, count = 20, authorFilter = NULL,
 \item{yearFilter}{Year filters}
 
 \item{journalFilter}{Journal filters}
+
+\item{key}{(character) API key. required either passed in here or save
+as an env var or R option. see \code{\link{rif}} and \code{\link{Startup}}}
 
 \item{...}{Curl options passed on to \code{\link[crul:HttpClient]{crul::HttpClient()}}}
 }

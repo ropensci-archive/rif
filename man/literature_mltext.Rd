@@ -4,7 +4,7 @@
 \alias{literature_mltext}
 \title{Literature - more like text search}
 \usage{
-literature_mltext(text, offset = 0, count = 20, ...)
+literature_mltext(text, offset = 0, count = 20, key = NULL, ...)
 }
 \arguments{
 \item{text}{The query}
@@ -12,6 +12,9 @@ literature_mltext(text, offset = 0, count = 20, ...)
 \item{offset}{(integer) The result (row) to start on    query    0}
 
 \item{count}{(integer) The number of results (rows) to return. Default: 5}
+
+\item{key}{(character) API key. required either passed in here or save
+as an env var or R option. see \code{\link{rif}} and \code{\link{Startup}}}
 
 \item{...}{Curl options passed on to \code{\link[crul:HttpClient]{crul::HttpClient()}}}
 }

@@ -3,6 +3,8 @@
 #' @export
 #'
 #' @param text (character) The source text
+#' @param key (character) API key. required either passed in here or save
+#' as an env var or R option. see \code{\link{rif}} and \code{\link{Startup}}
 #' @param ... Curl options passed on to [crul::HttpClient()]
 #' @family lexical
 #'
@@ -19,9 +21,9 @@
 #' lexical_sentences(gsub("\n", "", text))
 #' }
 
-lexical_sentences <- function(text, ...) {
+lexical_sentences <- function(text, key = NULL, ...) {
   nif_parse(
-    nif_GET("lexical/sentences", list(text = text), ...),
+    nif_GET("lexical/sentences.json", list(text = text, key = key_check(key)), ...),
     TRUE
   )
 }

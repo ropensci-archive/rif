@@ -6,4 +6,5 @@ man-roxygen
 ^CONDUCT\.md$
 .github
 cran-comments.md
+Makefile
 

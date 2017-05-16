@@ -4,9 +4,12 @@
 \alias{literature_retractions}
 \title{Search literature retractions}
 \usage{
-literature_retractions(...)
+literature_retractions(key = NULL, ...)
 }
 \arguments{
+\item{key}{(character) API key. required either passed in here or save
+as an env var or R option. see \code{\link{rif}} and \code{\link{Startup}}}
+
 \item{...}{Curl options passed on to \code{\link[crul:HttpClient]{crul::HttpClient()}}}
 }
 \description{

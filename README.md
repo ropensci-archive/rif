@@ -9,14 +9,36 @@ rif
 [![rstudio mirror downloads](https://cranlogs.r-pkg.org/badges/rif)](https://github.com/metacran/cranlogs.app)
 [![cran version](https://www.r-pkg.org/badges/version/rif)](https://cran.r-project.org/package=rif)
 
+
 R client for the [Neuroscience Information Framework](https://www.neuinfo.org/) APIs.
 
-* API docs at <http://nif-services.neuinfo.org/servicesv1/>
-* Various clients at <http://nif-services.neuinfo.org/servicesv1/downloads.html>
+* API docs at <https://neuinfo.org/about/webservices>
+
+### Auth
+
+You now need an API key to use the NIF API. Steps:
+
+* Go to <https://www.neuinfo.org/>
+* If you don't have an account yet, register for an account. 
+* Log in
+* Go to <https://www.neuinfo.org/account/developer> - you'll need to 
+enter your password again
+* Create an API key
+* Store your API key ideally as an environment variable in `.Renviron`
+or similar. Or, you can save as an R option. (see `?Startup` for help on 
+env vars and R options). You can also pass in your API key to each function
+but that's not ideal.
 
 ## Installation
 
-Install development version from GitHub (not on CRAN yet)
+CRAN version
+
+
+```r
+install.packages("rif")
+```
+
+development version
 
 
 ```r
@@ -40,27 +62,27 @@ head(out$result$federationSummary$results)
 ```
 
 ```
-#>   parentCategory    category                        db
-#> 1    Entity Type    Molecule              PeptideAtlas
-#> 2   Type of Data   Phenotype                      IMPC
-#> 3   Type of Data   Cell line Coriell Cell Repositories
-#> 4    Entity Type        Cell Coriell Cell Repositories
-#> 5   Type of Data Biospecimen Coriell Cell Repositories
-#> 6   Type of Data  Expression                       GEO
-#>              indexable            nifId count totalCount snippets
-#> 1             MassSpec nif-0000-03266-2     4         76     NULL
-#> 2   KnockoutPhenotypes     nlx_151660-1     3      22344     NULL
-#> 3                NIGMS nif-0000-00182-2    11      12986     NULL
-#> 4                NIGMS nif-0000-00182-2    11      12986     NULL
-#> 5                NIGMS nif-0000-00182-2    11      12986     NULL
-#> 6 MicroarrayExperiment nif-0000-00142-1  4340      68725     NULL
-#>                             summaryString
-#> 1            PeptideAtlas: MassSpec (4)[]
-#> 2          IMPC: KnockoutPhenotypes (3)[]
-#> 3 Coriell Cell Repositories: NIGMS (11)[]
-#> 4 Coriell Cell Repositories: NIGMS (11)[]
-#> 5 Coriell Cell Repositories: NIGMS (11)[]
-#> 6      GEO: MicroarrayExperiment (4340)[]
+#>   parentCategory      category                   db      indexable
+#> 1    Output Type Data or Model Barres Brain RNA-Seq ExpressionData
+#> 2       Category    Expression Barres Brain RNA-Seq ExpressionData
+#> 3       Category          Gene Barres Brain RNA-Seq ExpressionData
+#> 4       Category          Cell Barres Brain RNA-Seq ExpressionData
+#> 5       Category      Molecule        PubMed Health           Drug
+#> 6    Output Type   Information        PubMed Health           Drug
+#>          nifId count totalCount snippets
+#> 1 scr_013736-2     9      22458     NULL
+#> 2 scr_013736-2     9      22458     NULL
+#> 3 scr_013736-2     9      22458     NULL
+#> 4 scr_013736-2     9      22458     NULL
+#> 5  nlx_32805-3     2      19179     NULL
+#> 6  nlx_32805-3     2      19179     NULL
+#>                                summaryString
+#> 1 Barres Brain RNA-Seq: ExpressionData (9)[]
+#> 2 Barres Brain RNA-Seq: ExpressionData (9)[]
+#> 3 Barres Brain RNA-Seq: ExpressionData (9)[]
+#> 4 Barres Brain RNA-Seq: ExpressionData (9)[]
+#> 5                  PubMed Health: Drug (2)[]
+#> 6                  PubMed Health: Drug (2)[]
 ```
 
 ## Query
@@ -73,16 +95,16 @@ rif_query_categories()
 ```
 
 ```
-#>  [1] "anatomy"             "antibody"            "catalognumber"
-#>  [4] "cell"                "coordinate"          "disease"
-#>  [7] "environment"         "fulltext"            "function"
-#> [10] "gene"                "genetargetreagent"   "genomiclocus"
-#> [13] "genomiclocusvariant" "genotype"            "identifier"
-#> [16] "interaction"         "interactiontype"     "moleculardomain"
-#> [19] "molecule"            "organism"            "pathway"
-#> [22] "phenotype"           "protocol"            "publication"
-#> [25] "quality"             "resource"            "sequence"
-#> [28] "sequencefeature"     "specimen"            "stage"
+#>  [1] "anatomy"             "antibody"            "catalognumber"      
+#>  [4] "cell"                "coordinate"          "disease"            
+#>  [7] "environment"         "fulltext"            "function"           
+#> [10] "gene"                "genetargetreagent"   "genomiclocus"       
+#> [13] "genomiclocusvariant" "genotype"            "identifier"         
+#> [16] "interaction"         "interactiontype"     "moleculardomain"    
+#> [19] "molecule"            "organism"            "pathway"            
+#> [22] "phenotype"           "protocol"            "publication"        
+#> [25] "quality"             "resource"            "sequence"           
+#> [28] "sequencefeature"     "specimen"            "stage"              
 #> [31] "strain"              "subcellularanatomy"
 ```
 
@@ -130,8 +152,8 @@ lexical_sentences(text)
 
 ```
 #> $sentence
-#> [1] "Lorem ipsum inceptos dolor nisi torquent porttitor donec, blandit scelerisquemattis cras quis mi, aliquam sagittis."
-#> [2] "Convallis placerat commodo imperdiet varius nunctempus urna vitae ultrices tristique eu mi ornare velit donec, posuere laoreet pretiumvitae porta augue porta feugiat in sapien egestas."
+#> [1] "Lorem ipsum inceptos dolor nisi torquent porttitor donec, blandit scelerisquemattis cras quis mi, aliquam sagittis."                                                                                       
+#> [2] "Convallis placerat commodo imperdiet varius nunctempus urna vitae ultrices tristique eu mi ornare velit donec, posuere laoreet pretiumvitae porta augue porta feugiat in sapien egestas."                  
 #> [3] "Quam odio nullam pulvinar litoracurabitur amet lacus sociosqu gravida ligula molestie dui netus fusce bibendumscelerisque, dictum malesuada proin elit etiam aliquam, mattis euismod donec nisl facilisis."
 ```
 
@@ -182,7 +204,7 @@ out$result$publications %>%
 ```
 
 ```
-#> # A tibble: 5 × 3
+#> # A tibble: 5 x 3
 #>       pmid
 #> *    <chr>
 #> 1 12944235
@@ -202,10 +224,10 @@ out[1:20]
 ```
 
 ```
-#>  [1] "21386829" "21967191" "16519442" "23675629" "15968000" "16934686"
-#>  [7] "10318977" "16373573" "22360771" "9593639"  "19723695" "11108151"
-#> [13] "18410446" "17251587" "23551690" "26389933" "27163758" "22992046"
-#> [19] "12554767" "11146662"
+#>  [1] "12768027" "11167165" "22576713" "17973093" "10050223" "21613570"
+#>  [7] "12438313" "22364277" "26214776" "10784445" "17519423" "21177250"
+#> [13] "23745088" "26009721" "1824564"  "15260988" "20656892" "1400454" 
+#> [19] "12200953" "22893106"
 ```
 
 Then get info on some articles
@@ -218,10 +240,10 @@ lapply(arts, "[[", "title")
 
 ```
 #> [[1]]
-#> [1] "Treatment of articulatory dysfunction in Parkinson's disease using repetitive transcranial magnetic stimulation."
-#>
+#> [1] "Basic residues of the helix six domain of influenza virus M1 involved in nuclear translocation of M1 can be replaced by PTAP and YPDL late assembly domain motifs."
+#> 
 #> [[2]]
-#> [1] "Molecular pathways underlying IBD-associated colorectal neoplasia: therapeutic implications."
+#> [1] "Point-of-care (POC) testing of lactate in the intensive care patient. Accuracy, reliability, and costs of different measurement systems."
 ```
 
 ## Data
@@ -238,7 +260,7 @@ out$query
 #> $clauses
 #>   category property    query expansion id quoted require forbid
 #> 1       NA       NA cellular      NULL NA  FALSE   FALSE  FALSE
-#>
+#> 
 #> $operator
 #> [1] "AND"
 ```
@@ -248,27 +270,27 @@ head(out$result$results)
 ```
 
 ```
-#>   parentCategory    category                        db
-#> 1    Entity Type    Molecule              PeptideAtlas
-#> 2   Type of Data   Phenotype                      IMPC
-#> 3   Type of Data   Cell line Coriell Cell Repositories
-#> 4   Type of Data Biospecimen Coriell Cell Repositories
-#> 5    Entity Type        Cell Coriell Cell Repositories
-#> 6   Type of Data  Expression                       GEO
-#>              indexable            nifId count totalCount snippets
-#> 1             MassSpec nif-0000-03266-2     4         76     NULL
-#> 2   KnockoutPhenotypes     nlx_151660-1     3      22344     NULL
-#> 3                NIGMS nif-0000-00182-2    11      12986     NULL
-#> 4                NIGMS nif-0000-00182-2    11      12986     NULL
-#> 5                NIGMS nif-0000-00182-2    11      12986     NULL
-#> 6 MicroarrayExperiment nif-0000-00142-1  4340      68725     NULL
-#>                             summaryString
-#> 1            PeptideAtlas: MassSpec (4)[]
-#> 2          IMPC: KnockoutPhenotypes (3)[]
-#> 3 Coriell Cell Repositories: NIGMS (11)[]
-#> 4 Coriell Cell Repositories: NIGMS (11)[]
-#> 5 Coriell Cell Repositories: NIGMS (11)[]
-#> 6      GEO: MicroarrayExperiment (4340)[]
+#>   parentCategory      category                   db      indexable
+#> 1       Category    Expression Barres Brain RNA-Seq ExpressionData
+#> 2       Category          Gene Barres Brain RNA-Seq ExpressionData
+#> 3       Category          Cell Barres Brain RNA-Seq ExpressionData
+#> 4    Output Type Data or Model Barres Brain RNA-Seq ExpressionData
+#> 5       Category      Molecule        PubMed Health           Drug
+#> 6    Output Type   Information        PubMed Health           Drug
+#>          nifId count totalCount snippets
+#> 1 scr_013736-2     9      22458     NULL
+#> 2 scr_013736-2     9      22458     NULL
+#> 3 scr_013736-2     9      22458     NULL
+#> 4 scr_013736-2     9      22458     NULL
+#> 5  nlx_32805-3     2      19179     NULL
+#> 6  nlx_32805-3     2      19179     NULL
+#>                                summaryString
+#> 1 Barres Brain RNA-Seq: ExpressionData (9)[]
+#> 2 Barres Brain RNA-Seq: ExpressionData (9)[]
+#> 3 Barres Brain RNA-Seq: ExpressionData (9)[]
+#> 4 Barres Brain RNA-Seq: ExpressionData (9)[]
+#> 5                  PubMed Health: Drug (2)[]
+#> 6                  PubMed Health: Drug (2)[]
 ```
 
 Get some data
@@ -280,34 +302,34 @@ out$result$result
 ```
 
 ```
-#> # A tibble: 20 × 11
-#>                                                                           Gene
-#>                                                                          <chr>
-#> 1                                              B cell CLL/lymphoma 6, member B
-#> 2                                                    cyclin-dependent kinase 4
-#> 3                           calcium channel, voltage-dependent, beta 2 subunit
-#> 4                                                                     clarin 3
-#> 5                                                                       afamin
-#> 6                                          Fas death domain-associated protein
-#> 7                                                       ring finger protein 14
-#> 8                                 DnaJ (Hsp40) homolog, subfamily C, member 21
-#> 9                                        protein inhibitor of activated STAT 1
-#> 10                                                     erythropoietin receptor
-#> 11 COP9 (constitutive photomorphogenic) homolog, subunit 3 (Arabidopsis thalia
-#> 12                       proteasome (prosome, macropain) 26S subunit, ATPase 2
-#> 13                                           speedy homolog A (Xenopus laevis)
-#> 14                                                            apolipoprotein M
-#> 15                                                     zinc finger protein 623
-#> 16                                            P450 (cytochrome) oxidoreductase
-#> 17                                                     erythropoietin receptor
-#> 18                                                      zinc and ring finger 1
-#> 19              solute carrier family 13 (sodium/sulfate symporters), member 1
-#> 20                                                snail homolog 2 (Drosophila)
-#> # ... with 10 more variables: Anatomical.Component <chr>,
+#> # A tibble: 20 x 12
+#>                                                   Gene
+#>                                                  <chr>
+#>  1                                tyrosine hydroxylase
+#>  2                              maternally expressed 3
+#>  3                       G protein-coupled receptor 37
+#>  4                               TANK-binding kinase 1
+#>  5                 zinc finger, ZZ domain containing 3
+#>  6                         deleted in azoospermia-like
+#>  7                                     forkhead box A2
+#>  8                         phospholipase A2, group IIF
+#>  9                                         homeobox C5
+#> 10                              GATA binding protein 4
+#> 11                             sal-like 4 (Drosophila)
+#> 12                   nitric oxide synthase 1, neuronal
+#> 13                          RIKEN cDNA C130073F10 gene
+#> 14                           choline acetyltransferase
+#> 15                                         cystatin 12
+#> 16 ash1 (absent, small, or homeotic)-like (Drosophila)
+#> 17                        neurogenic differentiation 4
+#> 18                         developing brain homeobox 2
+#> 19           zinc finger and SCAN domain containing 22
+#> 20                                      Nanog homeobox
+#> # ... with 11 more variables: Anatomical.Component <chr>,
 #> #   Assay.Type <chr>, Theiler.Stage <chr>, Tissue <chr>,
 #> #   Expression.Strength <chr>, Expression.Pattern <chr>,
 #> #   Expression.Pattern.Location <chr>, Authors <chr>, Notes <chr>,
-#> #   Source <chr>
+#> #   v_uuid <chr>, Source <chr>
 ```
 
 ## Meta

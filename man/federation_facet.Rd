@@ -8,7 +8,7 @@ federation_facet(id, query = NULL, strict = FALSE, subclassQuery = NULL,
   expandSynonyms = TRUE, expandAcronyms = FALSE, expandAbbrevs = FALSE,
   expandInferred = TRUE, offset = 0, count = 20, minCount = 2,
   facet = NULL, filter = NULL, orMultiFacets = FALSE,
-  subclassFilters = NULL, ...)
+  subclassFilters = NULL, key = NULL, ...)
 }
 \arguments{
 \item{id}{(character) A dataset id}
@@ -22,15 +22,15 @@ Default: \code{FALSE}}
 entailment (include all subclasses in the search). This can be combined
 with the "query" parameter.}
 
-\item{expandSynonyms}{(logical) Should recognized terms in the query have synonyms
-expanded? Default: \code{TRUE}}
+\item{expandSynonyms}{(logical) Should recognized terms in the query have
+synonyms expanded? Default: \code{TRUE}}
 
 \item{expandAcronyms}{(logical) Default: \code{FALSE}}
 
 \item{expandAbbrevs}{(logical) Default: \code{FALSE}}
 
-\item{expandInferred}{(logical) Should recognized terms in the query have inferred terms
-expanded? Default: \code{TRUE}}
+\item{expandInferred}{(logical) Should recognized terms in the query have
+inferred terms expanded? Default: \code{TRUE}}
 
 \item{offset}{(integer) The result (row) to start on    query    0}
 
@@ -53,7 +53,10 @@ columnName:parentId where parentId is a known ID. All subclasses of
 parentID will be included in the filter. This parameter may be
 combined with "filter".}
 
-\item{...}{Curl options passed on to \code{\link[httr]{GET}}}
+\item{key}{(character) API key. required either passed in here or save
+as an env var or R option. see \code{\link{rif}} and \code{\link{Startup}}}
+
+\item{...}{Curl options passed on to \code{\link[crul]{HttpClient}}}
 }
 \description{
 Federation facets

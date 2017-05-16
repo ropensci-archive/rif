@@ -6,7 +6,7 @@
 \usage{
 federation_search(query, strict = FALSE, snippetCount = 0,
   expandSynonyms = TRUE, expandAcronyms = FALSE, expandAbbrevs = FALSE,
-  expandInferred = TRUE, ...)
+  expandInferred = TRUE, key = NULL, ...)
 }
 \arguments{
 \item{query}{Query terms}
@@ -16,17 +16,20 @@ Default: \code{FALSE}}
 
 \item{snippetCount}{How many snippets to return. Default: 0}
 
-\item{expandSynonyms}{(logical) Should recognized terms in the query have synonyms
-expanded? Default: \code{TRUE}}
+\item{expandSynonyms}{(logical) Should recognized terms in the query have
+synonyms expanded? Default: \code{TRUE}}
 
 \item{expandAcronyms}{(logical) Default: \code{FALSE}}
 
 \item{expandAbbrevs}{(logical) Default: \code{FALSE}}
 
-\item{expandInferred}{(logical) Should recognized terms in the query have inferred terms
-expanded? Default: \code{TRUE}}
+\item{expandInferred}{(logical) Should recognized terms in the query have
+inferred terms expanded? Default: \code{TRUE}}
 
-\item{...}{Curl options passed on to \code{\link[httr]{GET}}}
+\item{key}{(character) API key. required either passed in here or save
+as an env var or R option. see \code{\link{rif}} and \code{\link{Startup}}}
+
+\item{...}{Curl options passed on to \code{\link[crul]{HttpClient}}}
 }
 \description{
 Federation search

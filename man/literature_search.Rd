@@ -9,7 +9,8 @@ literature_search(query, offset = 0, count = 20, minDate = NULL,
   searchFullText = FALSE, requireFullText = FALSE, authorFilter = NULL,
   yearFilter = NULL, journalFilter = NULL, sort = NULL, section = NULL,
   expandSynonyms = TRUE, expandAcronyms = FALSE, expandAbbrevs = FALSE,
-  expandInferred = TRUE, highlight = FALSE, abstract = TRUE, ...)
+  expandInferred = TRUE, highlight = FALSE, abstract = TRUE, key = NULL,
+  ...)
 }
 \arguments{
 \item{query}{Query terms}
@@ -46,21 +47,24 @@ Default: \code{FALSE}}
 
 \item{section}{Sections to search}
 
-\item{expandSynonyms}{(logical) Should recognized terms in the query have synonyms
-expanded? Default: \code{TRUE}}
+\item{expandSynonyms}{(logical) Should recognized terms in the query have
+synonyms expanded? Default: \code{TRUE}}
 
 \item{expandAcronyms}{(logical) Default: \code{FALSE}}
 
 \item{expandAbbrevs}{(logical) Default: \code{FALSE}}
 
-\item{expandInferred}{(logical) Should recognized terms in the query have inferred terms
-expanded? Default: \code{TRUE}}
+\item{expandInferred}{(logical) Should recognized terms in the query have
+inferred terms expanded? Default: \code{TRUE}}
 
 \item{highlight}{(no documentation provided). Default: \code{FALSE}}
 
 \item{abstract}{(no documentation provided). Default: \code{TRUE}}
 
-\item{...}{Curl options passed on to \code{\link[httr]{GET}}}
+\item{key}{(character) API key. required either passed in here or save
+as an env var or R option. see \code{\link{rif}} and \code{\link{Startup}}}
+
+\item{...}{Curl options passed on to \code{\link[crul]{HttpClient}}}
 }
 \description{
 Literature search

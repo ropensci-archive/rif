@@ -10,7 +10,7 @@ federation_data(id, query = NULL, strict = FALSE, subclassQuery = NULL,
   sortAsc = TRUE, offset = 0, count = 20, project = NULL,
   facet = NULL, filter = NULL, subclassFilter = NULL,
   includePrimaryData = FALSE, exportType = NULL, orMultiFacets = FALSE,
-  ...)
+  key = NULL, ...)
 }
 \arguments{
 \item{id}{(character) A dataset id}
@@ -24,15 +24,15 @@ Default: \code{FALSE}}
 axiom entailment (include all subclasses in the search). This can be
 combined with the "query" parameter.}
 
-\item{expandSynonyms}{(logical) Should recognized terms in the query have synonyms
-expanded? Default: \code{TRUE}}
+\item{expandSynonyms}{(logical) Should recognized terms in the query have
+synonyms expanded? Default: \code{TRUE}}
 
 \item{expandAcronyms}{(logical) Default: \code{FALSE}}
 
 \item{expandAbbrevs}{(logical) Default: \code{FALSE}}
 
-\item{expandInferred}{(logical) Should recognized terms in the query have inferred terms
-expanded? Default: \code{TRUE}}
+\item{expandInferred}{(logical) Should recognized terms in the query have
+inferred terms expanded? Default: \code{TRUE}}
 
 \item{highlight}{(logical) Highlight ...}
 
@@ -68,7 +68,10 @@ but will not include markup) "all" (include both display and data columns)}
 facet are specified in the query and should be ORed together. Defaults to
 "AND"}
 
-\item{...}{Curl options passed on to \code{\link[httr]{GET}}}
+\item{key}{(character) API key. required either passed in here or save
+as an env var or R option. see \code{\link{rif}} and \code{\link{Startup}}}
+
+\item{...}{Curl options passed on to \code{\link[crul]{HttpClient}}}
 }
 \description{
 Federation data

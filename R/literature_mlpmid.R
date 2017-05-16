@@ -8,6 +8,8 @@
 #' @param authorFilter  Author filters
 #' @param yearFilter  Year filters
 #' @param journalFilter Journal filters
+#' @param key (character) API key. required either passed in here or save
+#' as an env var or R option. see \code{\link{rif}} and \code{\link{Startup}}
 #' @param ... Curl options passed on to [crul::HttpClient()]
 #' @family literature
 #'
@@ -21,16 +23,17 @@
 #' }
 
 literature_mlpmid <- function(pmid, offset = 0, count = 20, authorFilter = NULL,
-                              yearFilter = NULL, journalFilter = NULL, ...) {
+                              yearFilter = NULL, journalFilter = NULL,
+                              key = NULL, ...) {
 
   pmids <- args <- stats::setNames(as.list(pmid), rep("pmid", length(pmid)))
   args <- nc(list(offset = offset, count = count,
                   authorFilter = authorFilter, yearFilter = yearFilter,
-                  journalFilter = journalFilter))
+                  journalFilter = journalFilter, key = key_check(key)))
   args <- c(pmids, args)
   tibble::as_tibble(
     nif_parse(
-      nif_GET("literature/moreLikePmid", args, ...),
+      nif_GET("literature/moreLikePmid.json", args, ...),
       TRUE)
   )
 }

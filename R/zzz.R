@@ -1,4 +1,5 @@
-nifbase <- function() "http://nif-services.neuinfo.org"
+#nifbase <- function() "https://neuinfo.org"
+nifbase <- function() "https://scicrunch.org"
 
 nc <- function(l) Filter(Negate(is.null), l)
 
@@ -7,7 +8,7 @@ nif_GET <- function(path, args, ...){
     url = nifbase(),
     headers = list(Accept = "application/json")
   )
-  res <- cli$get(path = file.path("servicesv1/v1", path), query = args, ...)
+  res <- cli$get(path = file.path("api/1/dataservices", path), query = args, ...)
   res$raise_for_status()
   res$parse("UTF-8")
 }
@@ -42,4 +43,14 @@ move_col <- function(x, y, to = "start"){
 
 start_end <- function(x) {
   x[, c("token", "start", "end")]
+}
+
+key_check <- function(x) {
+  tmp <- if (is.null(x)) Sys.getenv("NIF_API_KEY", "") else x
+  if (tmp == "") {
+    getOption("nif_api_key", stop("need an API key for DPLA",
+                                   call. = FALSE))
+  } else {
+    tmp
+  }
 }

@@ -41,7 +41,7 @@ federation_facet <- function(id, query = NULL, strict = FALSE,
   subclassQuery = NULL, expandSynonyms = TRUE, expandAcronyms = FALSE,
   expandAbbrevs = FALSE, expandInferred = TRUE, offset = 0, count = 20,
   minCount = 2, facet = NULL, filter = NULL, orMultiFacets = FALSE,
-  subclassFilters = NULL, ...) {
+  subclassFilters = NULL, key = NULL, ...) {
 
   args <- nc(
     list(
@@ -49,9 +49,10 @@ federation_facet <- function(id, query = NULL, strict = FALSE,
       expandSynonyms = al(expandSynonyms), expandAcronyms = al(expandAcronyms),
       expandAbbrevs = al(expandAbbrevs), expandInferred = al(expandInferred),
       offset = offset, count = count, facet = facet, filter = filter,
-      orMultiFacets = al(orMultiFacets), subclassFilters = subclassFilters))
+      orMultiFacets = al(orMultiFacets), subclassFilters = subclassFilters,
+      key = key_check(key)))
   res <- nif_parse(
-    nif_GET(paste0("federation/facets/", id), args, ...),
+    nif_GET(paste0("federation/facets/", paste0(id, ".json")), args, ...),
     FALSE)
   list(category = res[[1]]$category, facets = parse_to_df(res[[1]]$facets))
 }

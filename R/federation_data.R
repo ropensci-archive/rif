@@ -53,7 +53,8 @@ federation_data <- function(id, query = NULL, strict = FALSE,
   expandAbbrevs = FALSE, expandInferred = TRUE, highlight = FALSE,
   sortField = NULL, sortAsc = TRUE, offset = 0, count = 20, project = NULL,
   facet = NULL, filter = NULL, subclassFilter = NULL,
-  includePrimaryData = FALSE, exportType = NULL, orMultiFacets = FALSE, ...) {
+  includePrimaryData = FALSE, exportType = NULL, orMultiFacets = FALSE,
+  key = NULL, ...) {
 
   args <- nc(
     list(
@@ -65,9 +66,10 @@ federation_data <- function(id, query = NULL, strict = FALSE,
       count = count, project = project, facet = facet, filter = filter,
       subclassFilter = subclassFilter,
       includePrimaryData = al(includePrimaryData),
-      exportType = exportType, orMultiFacets = al(orMultiFacets)))
+      exportType = exportType, orMultiFacets = al(orMultiFacets),
+      key = key_check(key)))
   res <- nif_parse(
-    nif_GET(paste0("federation/data/", id), args, ...),
+    nif_GET(paste0("federation/data/", paste0(id, ".json")), args, ...),
   FALSE)
   res$result$result <- parse_result(res$result$result)
   res$result$results <- parse_rows(res$result$results$row)

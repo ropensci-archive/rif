@@ -42,7 +42,7 @@ literature_search <- function(query, offset = 0, count = 20, minDate = NULL,
   searchFullText = FALSE, requireFullText = FALSE, authorFilter = NULL,
   yearFilter = NULL, journalFilter = NULL, sort = NULL, section = NULL,
   expandSynonyms = TRUE, expandAcronyms = FALSE, expandAbbrevs = FALSE,
-  expandInferred = TRUE, highlight = FALSE, abstract = TRUE, ...) {
+  expandInferred = TRUE, highlight = FALSE, abstract = TRUE, key = NULL, ...) {
 
   args <- nc(list(q = query, offset = offset, count = count, minDate = minDate,
     maxDate = maxDate, facetCount = facetCount, snippetCount = snippetCount,
@@ -52,9 +52,9 @@ literature_search <- function(query, offset = 0, count = 20, minDate = NULL,
     section = section, expandSynonyms = al(expandSynonyms),
     expandAcronyms = al(expandAcronyms), expandAbbrevs = al(expandAbbrevs),
     expandInferred = al(expandInferred), highlight = highlight,
-    abstract = abstract))
+    abstract = abstract, key = key_check(key)))
   res <- nif_parse(
-    nif_GET("literature/search", args, ...),
+    nif_GET("literature/search.json", args, ...),
     TRUE)
   res$result$publications <- tibble::as_tibble(res$result$publications)
   return(res)

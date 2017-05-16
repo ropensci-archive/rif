@@ -5,7 +5,7 @@
 \title{Vocabulary services - Search for vocabulary terms and their metadata}
 \usage{
 vocabulary_search(term, limit = 20, category = NULL, vocabulary = NULL,
-  ...)
+  key = NULL, ...)
 }
 \arguments{
 \item{term}{(character) The search terms}
@@ -15,6 +15,9 @@ vocabulary_search(term, limit = 20, category = NULL, vocabulary = NULL,
 \item{category}{A category}
 
 \item{vocabulary}{A vocabulary}
+
+\item{key}{(character) API key. required either passed in here or save
+as an env var or R option. see \code{\link{rif}} and \code{\link{Startup}}}
 
 \item{...}{Curl options passed on to \code{\link[crul:HttpClient]{crul::HttpClient()}}}
 }

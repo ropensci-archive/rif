@@ -1,9 +1,8 @@
 ## Test environments
 
-* local OS X install, R 3.3.3
-* ubuntu 12.04 (on travis-ci), R 3.3.3
+* local OS X install, R 3.4.0 patched
+* ubuntu 12.04 (on travis-ci), R 3.4.0
 * win-builder (devel and release)
-* R-hub (Windows R-devel, Ubuntu R-release, Fedora R-devel)
 
 ## R CMD check results
 
@@ -17,12 +16,11 @@
 
 ## Reverse dependencies
 
-This is a new package, so no reverse dependencies.
+There are no reverse dependencies.
 
 ---
 
-This is a new release. I have read and agree to the the CRAN 
-policies at https://cran.r-project.org/web/packages/policies.html
+This submission includes xxx 
 
 Thanks!
 Scott Chamberlain

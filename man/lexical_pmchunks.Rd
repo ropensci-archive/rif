@@ -4,10 +4,13 @@
 \alias{lexical_pmchunks}
 \title{Lexical services - break Pubmed documents into chunks}
 \usage{
-lexical_pmchunks(pmid, ...)
+lexical_pmchunks(pmid, key = NULL, ...)
 }
 \arguments{
 \item{pmid}{One or more PMID's in a vector or list}
+
+\item{key}{(character) API key. required either passed in here or save
+as an env var or R option. see \code{\link{rif}} and \code{\link{Startup}}}
 
 \item{...}{Curl options passed on to \code{\link[crul:HttpClient]{crul::HttpClient()}}}
 }

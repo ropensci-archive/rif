@@ -4,9 +4,12 @@
 \alias{rif_query_categories}
 \title{Query NIF data}
 \usage{
-rif_query_categories(...)
+rif_query_categories(key = NULL, ...)
 }
 \arguments{
+\item{key}{(character) API key. required either passed in here or save
+as an env var or R option. see \code{\link{rif}} and \code{\link{Startup}}}
+
 \item{...}{Curl options passed on to \code{\link[crul:HttpClient]{crul::HttpClient()}}}
 }
 \description{

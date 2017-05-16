@@ -4,10 +4,13 @@
 \alias{vocabulary_providers}
 \title{Vocabulary services - get providers}
 \usage{
-vocabulary_providers(vocabulary = NULL, ...)
+vocabulary_providers(vocabulary = NULL, key = NULL, ...)
 }
 \arguments{
 \item{vocabulary}{A vocabulary}
+
+\item{key}{(character) API key. required either passed in here or save
+as an env var or R option. see \code{\link{rif}} and \code{\link{Startup}}}
 
 \item{...}{Curl options passed on to \code{\link[crul:HttpClient]{crul::HttpClient()}}}
 }

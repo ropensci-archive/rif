@@ -24,12 +24,12 @@
 
 federation_search <- function(query, strict=FALSE, snippetCount=0,
   expandSynonyms=TRUE, expandAcronyms=FALSE, expandAbbrevs=FALSE,
-  expandInferred=TRUE, ...) {
+  expandInferred=TRUE, key=NULL, ...) {
 
   args <- nc(list(q=query, strict=strict, snippetCount=snippetCount,
                   expandSynonyms=al(expandSynonyms),
                   expandAcronyms=al(expandAcronyms),
                   expandAbbrevs=al(expandAbbrevs),
-                  expandInferred=al(expandInferred)))
+                  expandInferred=al(expandInferred), key = key_check(key)))
   nif_parse(nif_GET("federation/search.json", args, ...), TRUE)
 }

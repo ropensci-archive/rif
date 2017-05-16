@@ -5,7 +5,7 @@
 \title{Vocabulary services - get terms that match a prefix}
 \usage{
 vocabulary(prefix = NULL, id = NULL, limit = 20, category = NULL,
-  vocabulary = NULL, ...)
+  vocabulary = NULL, key = NULL, ...)
 }
 \arguments{
 \item{prefix, id}{(character) The prefix, or id of the term. Use one or
@@ -16,6 +16,9 @@ the other}
 \item{category}{A category}
 
 \item{vocabulary}{A vocabulary}
+
+\item{key}{(character) API key. required either passed in here or save
+as an env var or R option. see \code{\link{rif}} and \code{\link{Startup}}}
 
 \item{...}{Curl options passed on to \code{\link[crul:HttpClient]{crul::HttpClient()}}}
 }

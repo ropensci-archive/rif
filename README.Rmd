@@ -19,12 +19,32 @@ knitr::opts_chunk$set(
 
 R client for the [Neuroscience Information Framework](https://www.neuinfo.org/) APIs.
 
-* API docs at <http://nif-services.neuinfo.org/servicesv1/>
-* Various clients at <http://nif-services.neuinfo.org/servicesv1/downloads.html>
+* API docs at <https://neuinfo.org/about/webservices>
+
+### Auth
+
+You now need an API key to use the NIF API. Steps:
+
+* Go to <https://www.neuinfo.org/>
+* If you don't have an account yet, register for an account. 
+* Log in
+* Go to <https://www.neuinfo.org/account/developer> - you'll need to 
+enter your password again
+* Create an API key
+* Store your API key ideally as an environment variable in `.Renviron`
+or similar. Or, you can save as an R option. (see `?Startup` for help on 
+env vars and R options). You can also pass in your API key to each function
+but that's not ideal.
 
 ## Installation
 
-Install development version from GitHub (not on CRAN yet)
+CRAN version
+
+```{r eval=FALSE}
+install.packages("rif")
+```
+
+development version
 
 ```{r eval=FALSE}
 install.packages("devtools")

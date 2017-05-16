@@ -12,14 +12,15 @@
 #' }
 
 rif_query <- function(query, expandSynonyms = TRUE, expandAcronyms = FALSE,
-                      expandAbbrevs = FALSE, expandInferred = TRUE, ...) {
+                      expandAbbrevs = FALSE, expandInferred = TRUE,
+                      key = NULL, ...) {
 
   args <- nc(list(q = query, expandSynonyms = al(expandSynonyms),
                   expandAcronyms = al(expandAcronyms),
                   expandAbbrevs = al(expandAbbrevs),
-                  expandInferred = al(expandInferred)))
+                  expandInferred = al(expandInferred), key = key_check(key)))
   nif_parse(
-    nif_GET("query", args, ...),
+    nif_GET("query.json", args, ...),
     FALSE
   )
 }
