@@ -1,6 +1,8 @@
 context("lexical_pmchunks")
 
 test_that("lexical_pmchunks", {
+	skip_on_cran()
+
   tt <- lexical_pmchunks(pmid = 1)
 
   expect_is(tt, "data.frame")
@@ -9,5 +11,5 @@ test_that("lexical_pmchunks", {
   expect_is(tt$start, "integer")
   expect_equal(tt$start, c(0, 17, 30, 45, 66))
   expect_is(tt$end, "integer")
-  expect_equal(tt$end, c(13, 28, 41, 63, 70)) 
+  expect_equal(tt$end, c(13, 28, 41, 63, 70))
 })

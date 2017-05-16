@@ -1,6 +1,8 @@
 context("lexical_chunks")
 
 test_that("lexical_chunks", {
+	skip_on_cran()
+
   tt <- lexical_chunks("I am hungry")
 
   expect_is(tt, "data.frame")
@@ -10,5 +12,5 @@ test_that("lexical_chunks", {
   expect_is(tt$start, "integer")
   expect_equal(tt$start, c(0, 2))
   expect_is(tt$end, "integer")
-  expect_equal(tt$end, c(1, 4)) 
+  expect_equal(tt$end, c(1, 4))
 })

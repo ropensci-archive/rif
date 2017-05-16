@@ -1,8 +1,10 @@
 context("vocabulary")
 
 test_that("vocabulary", {
+  skip_on_cran()
+
   tt <- vocabulary(prefix = "cell")
-  
+
   expect_is(tt, "data.frame")
   expect_is(tt$term, "character")
   expect_is(tt$id, "character")

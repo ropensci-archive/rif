@@ -1,8 +1,10 @@
 context("literature_search")
 
 test_that("literature_search", {
+  skip_on_cran()
+
   tt <- literature_search(query = "cellular")
-  
+
   expect_is(tt, "list")
   expect_is(tt$result, "list")
   expect_is(tt$result$publications, "data.frame")

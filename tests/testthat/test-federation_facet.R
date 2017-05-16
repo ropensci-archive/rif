@@ -1,6 +1,8 @@
 context("federation_facet")
 
 test_that("federation_facet", {
+	skip_on_cran()
+
   tt <- federation_facet(id = "nlx_152871-2")
 
   expect_is(tt, "list")

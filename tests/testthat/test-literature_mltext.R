@@ -1,6 +1,8 @@
 context("literature_mltext")
 
 test_that("literature_mltext", {
+  skip_on_cran()
+
   tt <- literature_mltext(text = "cellular")
 
   expect_is(tt, "data.frame")

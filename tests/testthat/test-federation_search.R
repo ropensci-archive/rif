@@ -1,6 +1,8 @@
 context("federation_search")
 
 test_that("federation_search", {
+	skip_on_cran()
+
   tt <- federation_search("cellular")
 
   expect_is(tt, "list")

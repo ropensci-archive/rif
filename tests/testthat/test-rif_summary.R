@@ -1,8 +1,10 @@
 context("rif_summary")
 
 test_that("rif_summary", {
+	skip_on_cran()
+
   tt <- rif_summary("cellular")
-  
+
   expect_is(tt, "list")
   expect_is(tt$result, "list")
   expect_is(tt$result$literatureSummary, "list")

@@ -1,8 +1,10 @@
 context("rif_query")
 
 test_that("rif_query", {
+	skip_on_cran()
+
   tt <- rif_query(query = "cellular")
-  
+
   expect_is(tt, "list")
   expect_is(tt$clauses, "list")
   expect_equal(tt$clauses[[1]]$query, "cellular")

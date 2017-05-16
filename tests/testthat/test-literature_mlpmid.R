@@ -1,8 +1,10 @@
 context("literature_mlpmid")
 
 test_that("literature_mlpmid", {
+  skip_on_cran()
+
   tt <- literature_mlpmid(pmid = 1)
-  
+
   expect_is(tt, "data.frame")
   expect_is(tt$pmid, "character")
   expect_is(tt$pmcid, "logical")

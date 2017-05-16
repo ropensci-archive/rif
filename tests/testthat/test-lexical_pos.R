@@ -1,8 +1,10 @@
 context("lexical_pos")
 
 test_that("lexical_pos", {
+	skip_on_cran()
+
   tt <- lexical_pos("I am hungry")
-  
+
   expect_is(tt, "data.frame")
   expect_is(tt$token, "character")
   expect_equal(length(tt$token), 3)
