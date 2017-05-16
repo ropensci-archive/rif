@@ -20,7 +20,9 @@ There are no reverse dependencies.
 
 ---
 
-This submission includes xxx 
+This submission includes some changes under the hood,
+and all functions gain a new parameter (key) for passing in
+an API key for the web service.
 
 Thanks!
 Scott Chamberlain
