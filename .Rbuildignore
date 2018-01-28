@@ -8,3 +8,4 @@ man-roxygen
 cran-comments.md
 Makefile
 
+^codemeta\.json$
