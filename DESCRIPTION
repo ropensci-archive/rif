@@ -8,7 +8,7 @@ Version: 0.2.0.9100
 License: MIT + file LICENSE
 Authors@R: person("Scott", "Chamberlain", role = c("aut", "cre"), email =
     "myrmecocystus+r@gmail.com")
-URL: https://github.com/ropensci/rif
+URL: https://docs.ropensci.org/rif, https://github.com/ropensci/rif
 BugReports: https://github.com/ropensci/rif/issues
 VignetteBuilder: knitr
 Roxygen: list(markdown = TRUE)
