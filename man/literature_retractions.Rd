@@ -24,7 +24,9 @@ literature_pmid(pmid = out[1])
 }
 }
 \seealso{
-Other literature: \code{\link{literature_mlpmid}},
-  \code{\link{literature_mltext}},
-  \code{\link{literature_pmid}}
+Other literature: 
+\code{\link{literature_mlpmid}()},
+\code{\link{literature_mltext}()},
+\code{\link{literature_pmid}()}
 }
+\concept{literature}

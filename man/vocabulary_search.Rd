@@ -4,8 +4,14 @@
 \alias{vocabulary_search}
 \title{Vocabulary services - Search for vocabulary terms and their metadata}
 \usage{
-vocabulary_search(term, limit = 20, category = NULL, vocabulary = NULL,
-  key = NULL, ...)
+vocabulary_search(
+  term,
+  limit = 20,
+  category = NULL,
+  vocabulary = NULL,
+  key = NULL,
+  ...
+)
 }
 \arguments{
 \item{term}{(character) The search terms}
@@ -32,8 +38,10 @@ vocabulary_search("cell", category = "biological_process")
 }
 }
 \seealso{
-Other vocabulary: \code{\link{vocabulary_categories}},
-  \code{\link{vocabulary_providers}},
-  \code{\link{vocabulary_suggest}},
-  \code{\link{vocabulary}}
+Other vocabulary: 
+\code{\link{vocabulary_categories}()},
+\code{\link{vocabulary_providers}()},
+\code{\link{vocabulary_suggest}()},
+\code{\link{vocabulary}()}
 }
+\concept{vocabulary}

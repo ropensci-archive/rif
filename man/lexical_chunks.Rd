@@ -28,13 +28,15 @@ lacus sociosqu gravida ligula molestie dui netus fusce bibendum scelerisque,
 dictum malesuada proin elit etiam aliquam, mattis euismod donec
 nisl facilisis."
 
-lexical_chunks(gsub("\\n", "", text))
+lexical_chunks(gsub("\n", "", text))
 }
 }
 \seealso{
-Other lexical: \code{\link{lexical_entities}},
-  \code{\link{lexical_pmchunks}},
-  \code{\link{lexical_pmentities}},
-  \code{\link{lexical_pos}},
-  \code{\link{lexical_sentences}}
+Other lexical: 
+\code{\link{lexical_entities}()},
+\code{\link{lexical_pmchunks}()},
+\code{\link{lexical_pmentities}()},
+\code{\link{lexical_pos}()},
+\code{\link{lexical_sentences}()}
 }
+\concept{lexical}

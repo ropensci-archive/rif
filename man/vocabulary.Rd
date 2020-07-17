@@ -4,8 +4,15 @@
 \alias{vocabulary}
 \title{Vocabulary services - get terms that match a prefix}
 \usage{
-vocabulary(prefix = NULL, id = NULL, limit = 20, category = NULL,
-  vocabulary = NULL, key = NULL, ...)
+vocabulary(
+  prefix = NULL,
+  id = NULL,
+  limit = 20,
+  category = NULL,
+  vocabulary = NULL,
+  key = NULL,
+  ...
+)
 }
 \arguments{
 \item{prefix, id}{(character) The prefix, or id of the term. Use one or
@@ -34,8 +41,10 @@ vocabulary(id = "GO_0022407")
 }
 }
 \seealso{
-Other vocabulary: \code{\link{vocabulary_categories}},
-  \code{\link{vocabulary_providers}},
-  \code{\link{vocabulary_search}},
-  \code{\link{vocabulary_suggest}}
+Other vocabulary: 
+\code{\link{vocabulary_categories}()},
+\code{\link{vocabulary_providers}()},
+\code{\link{vocabulary_search}()},
+\code{\link{vocabulary_suggest}()}
 }
+\concept{vocabulary}

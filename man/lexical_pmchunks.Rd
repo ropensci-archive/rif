@@ -24,9 +24,11 @@ lexical_pmchunks(out[1:3])
 }
 }
 \seealso{
-Other lexical: \code{\link{lexical_chunks}},
-  \code{\link{lexical_entities}},
-  \code{\link{lexical_pmentities}},
-  \code{\link{lexical_pos}},
-  \code{\link{lexical_sentences}}
+Other lexical: 
+\code{\link{lexical_chunks}()},
+\code{\link{lexical_entities}()},
+\code{\link{lexical_pmentities}()},
+\code{\link{lexical_pos}()},
+\code{\link{lexical_sentences}()}
 }
+\concept{lexical}

@@ -4,8 +4,16 @@
 \alias{literature_mlpmid}
 \title{Literature - more like PMID search}
 \usage{
-literature_mlpmid(pmid, offset = 0, count = 20, authorFilter = NULL,
-  yearFilter = NULL, journalFilter = NULL, key = NULL, ...)
+literature_mlpmid(
+  pmid,
+  offset = 0,
+  count = 20,
+  authorFilter = NULL,
+  yearFilter = NULL,
+  journalFilter = NULL,
+  key = NULL,
+  ...
+)
 }
 \arguments{
 \item{pmid}{One or more PMID's in a vector or list}
@@ -39,7 +47,9 @@ literature_mlpmid(pmid = out[1:3], count = 3)
 }
 }
 \seealso{
-Other literature: \code{\link{literature_mltext}},
-  \code{\link{literature_pmid}},
-  \code{\link{literature_retractions}}
+Other literature: 
+\code{\link{literature_mltext}()},
+\code{\link{literature_pmid}()},
+\code{\link{literature_retractions}()}
 }
+\concept{literature}

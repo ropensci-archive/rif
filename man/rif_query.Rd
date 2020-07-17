@@ -4,8 +4,15 @@
 \alias{rif_query}
 \title{Query NIF data}
 \usage{
-rif_query(query, expandSynonyms = TRUE, expandAcronyms = FALSE,
-  expandAbbrevs = FALSE, expandInferred = TRUE, key = NULL, ...)
+rif_query(
+  query,
+  expandSynonyms = TRUE,
+  expandAcronyms = FALSE,
+  expandAbbrevs = FALSE,
+  expandInferred = TRUE,
+  key = NULL,
+  ...
+)
 }
 \arguments{
 \item{query}{Query terms}
@@ -36,5 +43,7 @@ rif_query("cellular", verbose = TRUE)
 }
 }
 \seealso{
-Other query: \code{\link{rif_query_categories}}
+Other query: 
+\code{\link{rif_query_categories}()}
 }
+\concept{query}

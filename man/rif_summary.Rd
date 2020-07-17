@@ -4,8 +4,15 @@
 \alias{rif_summary}
 \title{Summary}
 \usage{
-rif_summary(query, expandSynonyms = TRUE, expandAcronyms = FALSE,
-  expandAbbrevs = FALSE, expandInferred = TRUE, key = NULL, ...)
+rif_summary(
+  query,
+  expandSynonyms = TRUE,
+  expandAcronyms = FALSE,
+  expandAbbrevs = FALSE,
+  expandInferred = TRUE,
+  key = NULL,
+  ...
+)
 }
 \arguments{
 \item{query}{Query terms}

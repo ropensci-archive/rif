@@ -4,7 +4,7 @@ Description: Client for 'Neuroscience' Information Framework ('NIF') 'APIs'
     (<https://neuinfo.org/>; <https://neuinfo.org/about/webservices>).
     Package includes functions for each 'API' route, and gives back data
     in tidy data.frame format.
-Version: 0.2.0.9100
+Version: 0.2.0.93
 License: MIT + file LICENSE
 Authors@R: person("Scott", "Chamberlain", role = c("aut", "cre"), email =
     "myrmecocystus+r@gmail.com")
@@ -12,13 +12,13 @@ URL: https://docs.ropensci.org/rif, https://github.com/ropensci/rif
 BugReports: https://github.com/ropensci/rif/issues
 VignetteBuilder: knitr
 Roxygen: list(markdown = TRUE)
+Encoding: UTF-8
 Imports:
     jsonlite,
     crul (>= 0.3.4),
     data.table,
     tibble
 Suggests:
-    roxygen2 (>= 6.0.1),
     testthat,
     knitr
-RoxygenNote: 6.0.1
+RoxygenNote: 7.1.1

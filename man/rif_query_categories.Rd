@@ -22,5 +22,7 @@ rif_query_categories(verbose = TRUE)
 }
 }
 \seealso{
-Other query: \code{\link{rif_query}}
+Other query: 
+\code{\link{rif_query}()}
 }
+\concept{query}

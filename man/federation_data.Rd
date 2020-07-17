@@ -4,13 +4,30 @@
 \alias{federation_data}
 \title{Federation data}
 \usage{
-federation_data(id, query = NULL, strict = FALSE, subclassQuery = NULL,
-  expandSynonyms = TRUE, expandAcronyms = FALSE, expandAbbrevs = FALSE,
-  expandInferred = TRUE, highlight = FALSE, sortField = NULL,
-  sortAsc = TRUE, offset = 0, count = 20, project = NULL,
-  facet = NULL, filter = NULL, subclassFilter = NULL,
-  includePrimaryData = FALSE, exportType = NULL, orMultiFacets = FALSE,
-  key = NULL, ...)
+federation_data(
+  id,
+  query = NULL,
+  strict = FALSE,
+  subclassQuery = NULL,
+  expandSynonyms = TRUE,
+  expandAcronyms = FALSE,
+  expandAbbrevs = FALSE,
+  expandInferred = TRUE,
+  highlight = FALSE,
+  sortField = NULL,
+  sortAsc = TRUE,
+  offset = 0,
+  count = 20,
+  project = NULL,
+  facet = NULL,
+  filter = NULL,
+  subclassFilter = NULL,
+  includePrimaryData = FALSE,
+  exportType = NULL,
+  orMultiFacets = FALSE,
+  key = NULL,
+  ...
+)
 }
 \arguments{
 \item{id}{(character) A dataset id}
@@ -93,6 +110,8 @@ federation_data("nlx_152871-2", verbose = TRUE)
 }
 }
 \seealso{
-Other federation: \code{\link{federation_facet}},
-  \code{\link{federation_search}}
+Other federation: 
+\code{\link{federation_facet}()},
+\code{\link{federation_search}()}
 }
+\concept{federation}

@@ -4,9 +4,17 @@
 \alias{federation_search}
 \title{Federation search}
 \usage{
-federation_search(query, strict = FALSE, snippetCount = 0,
-  expandSynonyms = TRUE, expandAcronyms = FALSE, expandAbbrevs = FALSE,
-  expandInferred = TRUE, key = NULL, ...)
+federation_search(
+  query,
+  strict = FALSE,
+  snippetCount = 0,
+  expandSynonyms = TRUE,
+  expandAcronyms = FALSE,
+  expandAbbrevs = FALSE,
+  expandInferred = TRUE,
+  key = NULL,
+  ...
+)
 }
 \arguments{
 \item{query}{Query terms}
@@ -51,6 +59,8 @@ federation_search("cellular", verbose = TRUE)
 }
 }
 \seealso{
-Other federation: \code{\link{federation_data}},
-  \code{\link{federation_facet}}
+Other federation: 
+\code{\link{federation_data}()},
+\code{\link{federation_facet}()}
 }
+\concept{federation}

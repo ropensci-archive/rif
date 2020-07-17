@@ -4,11 +4,25 @@
 \alias{federation_facet}
 \title{Federation facets}
 \usage{
-federation_facet(id, query = NULL, strict = FALSE, subclassQuery = NULL,
-  expandSynonyms = TRUE, expandAcronyms = FALSE, expandAbbrevs = FALSE,
-  expandInferred = TRUE, offset = 0, count = 20, minCount = 2,
-  facet = NULL, filter = NULL, orMultiFacets = FALSE,
-  subclassFilters = NULL, key = NULL, ...)
+federation_facet(
+  id,
+  query = NULL,
+  strict = FALSE,
+  subclassQuery = NULL,
+  expandSynonyms = TRUE,
+  expandAcronyms = FALSE,
+  expandAbbrevs = FALSE,
+  expandInferred = TRUE,
+  offset = 0,
+  count = 20,
+  minCount = 2,
+  facet = NULL,
+  filter = NULL,
+  orMultiFacets = FALSE,
+  subclassFilters = NULL,
+  key = NULL,
+  ...
+)
 }
 \arguments{
 \item{id}{(character) A dataset id}
@@ -75,6 +89,8 @@ federation_facet(id = "nlx_152871-2", count = 100, minCount = 10)
 }
 }
 \seealso{
-Other federation: \code{\link{federation_data}},
-  \code{\link{federation_search}}
+Other federation: 
+\code{\link{federation_data}()},
+\code{\link{federation_search}()}
 }
+\concept{federation}

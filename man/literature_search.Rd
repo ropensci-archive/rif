@@ -4,13 +4,31 @@
 \alias{literature_search}
 \title{Literature search}
 \usage{
-literature_search(query, offset = 0, count = 20, minDate = NULL,
-  maxDate = NULL, facetCount = 0, snippetCount = 0, minMatch = 60,
-  searchFullText = FALSE, requireFullText = FALSE, authorFilter = NULL,
-  yearFilter = NULL, journalFilter = NULL, sort = NULL, section = NULL,
-  expandSynonyms = TRUE, expandAcronyms = FALSE, expandAbbrevs = FALSE,
-  expandInferred = TRUE, highlight = FALSE, abstract = TRUE, key = NULL,
-  ...)
+literature_search(
+  query,
+  offset = 0,
+  count = 20,
+  minDate = NULL,
+  maxDate = NULL,
+  facetCount = 0,
+  snippetCount = 0,
+  minMatch = 60,
+  searchFullText = FALSE,
+  requireFullText = FALSE,
+  authorFilter = NULL,
+  yearFilter = NULL,
+  journalFilter = NULL,
+  sort = NULL,
+  section = NULL,
+  expandSynonyms = TRUE,
+  expandAcronyms = FALSE,
+  expandAbbrevs = FALSE,
+  expandInferred = TRUE,
+  highlight = FALSE,
+  abstract = TRUE,
+  key = NULL,
+  ...
+)
 }
 \arguments{
 \item{query}{Query terms}

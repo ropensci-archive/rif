@@ -25,7 +25,10 @@ vocabulary_suggest("cell")
 }
 }
 \seealso{
-Other vocabulary: \code{\link{vocabulary_categories}},
-  \code{\link{vocabulary_providers}},
-  \code{\link{vocabulary_search}}, \code{\link{vocabulary}}
+Other vocabulary: 
+\code{\link{vocabulary_categories}()},
+\code{\link{vocabulary_providers}()},
+\code{\link{vocabulary_search}()},
+\code{\link{vocabulary}()}
 }
+\concept{vocabulary}

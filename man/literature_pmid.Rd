@@ -28,7 +28,9 @@ literature_pmid(pmid = out[1:10])
 }
 }
 \seealso{
-Other literature: \code{\link{literature_mlpmid}},
-  \code{\link{literature_mltext}},
-  \code{\link{literature_retractions}}
+Other literature: 
+\code{\link{literature_mlpmid}()},
+\code{\link{literature_mltext}()},
+\code{\link{literature_retractions}()}
 }
+\concept{literature}

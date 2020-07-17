@@ -23,8 +23,10 @@ vocabulary_providers()
 }
 }
 \seealso{
-Other vocabulary: \code{\link{vocabulary_categories}},
-  \code{\link{vocabulary_search}},
-  \code{\link{vocabulary_suggest}},
-  \code{\link{vocabulary}}
+Other vocabulary: 
+\code{\link{vocabulary_categories}()},
+\code{\link{vocabulary_search}()},
+\code{\link{vocabulary_suggest}()},
+\code{\link{vocabulary}()}
 }
+\concept{vocabulary}
