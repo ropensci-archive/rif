@@ -42,8 +42,8 @@ development version
 
 
 ```r
-install.packages("devtools")
-devtools::install_github("ropensci/rif")
+install.packages("remotes")
+remotes::install_github("ropensci/rif")
 ```
 
 Load `rif`
@@ -62,27 +62,20 @@ head(out$result$federationSummary$results)
 ```
 
 ```
-#>   parentCategory      category                   db      indexable
-#> 1    Output Type Data or Model Barres Brain RNA-Seq ExpressionData
-#> 2       Category    Expression Barres Brain RNA-Seq ExpressionData
-#> 3       Category          Gene Barres Brain RNA-Seq ExpressionData
-#> 4       Category          Cell Barres Brain RNA-Seq ExpressionData
-#> 5       Category      Molecule        PubMed Health           Drug
-#> 6    Output Type   Information        PubMed Health           Drug
-#>          nifId count totalCount snippets
-#> 1 scr_013736-2     9      22458     NULL
-#> 2 scr_013736-2     9      22458     NULL
-#> 3 scr_013736-2     9      22458     NULL
-#> 4 scr_013736-2     9      22458     NULL
-#> 5  nlx_32805-3     2      19179     NULL
-#> 6  nlx_32805-3     2      19179     NULL
-#>                                summaryString
-#> 1 Barres Brain RNA-Seq: ExpressionData (9)[]
-#> 2 Barres Brain RNA-Seq: ExpressionData (9)[]
-#> 3 Barres Brain RNA-Seq: ExpressionData (9)[]
-#> 4 Barres Brain RNA-Seq: ExpressionData (9)[]
-#> 5                  PubMed Health: Drug (2)[]
-#> 6                  PubMed Health: Drug (2)[]
+#>   parentCategory      category                   db      indexable        nifId
+#> 1    Output Type Data or Model Barres Brain RNA-Seq ExpressionData scr_013736-2
+#> 2       Category          Gene Barres Brain RNA-Seq ExpressionData scr_013736-2
+#> 3       Category          Cell Barres Brain RNA-Seq ExpressionData scr_013736-2
+#> 4       Category    Expression Barres Brain RNA-Seq ExpressionData scr_013736-2
+#> 5    Output Type   Information        PubMed Health           Drug  nlx_32805-3
+#> 6       Category      Molecule        PubMed Health           Drug  nlx_32805-3
+#>   count totalCount snippets                              summaryString
+#> 1     9      22458     NULL Barres Brain RNA-Seq: ExpressionData (9)[]
+#> 2     9      22458     NULL Barres Brain RNA-Seq: ExpressionData (9)[]
+#> 3     9      22458     NULL Barres Brain RNA-Seq: ExpressionData (9)[]
+#> 4     9      22458     NULL Barres Brain RNA-Seq: ExpressionData (9)[]
+#> 5     2      20110     NULL                  PubMed Health: Drug (2)[]
+#> 6     2      20110     NULL                  PubMed Health: Drug (2)[]
 ```
 
 ## Query
@@ -118,14 +111,14 @@ vocabulary_search("cell", limit = 3)
 ```
 
 ```
-#>                                   uuid    term           id category
-#> 1 c2aad6c6-a2b8-4818-b2c8-5271dd5f431c    cell NEMO_9559000     cell
-#> 2 439b50ba-d1a6-4b4c-bbfd-d1d61d74ba69    cell   GO_0005623     cell
-#> 3 8ddd9932-4e66-4a25-84af-237c0784cef4 On cell    nifext_32     Cell
-#>   provider inferred acronym abbreviation synonyms definition
-#> 1   NIFSTD    FALSE   FALSE        FALSE       NA         NA
-#> 2   NIFSTD    FALSE   FALSE        FALSE       NA         NA
-#> 3   NIFSTD    FALSE   FALSE        FALSE       NA         NA
+#>                                   uuid    term           id category provider
+#> 1 c2aad6c6-a2b8-4818-b2c8-5271dd5f431c    cell NEMO_9559000     cell   NIFSTD
+#> 2 439b50ba-d1a6-4b4c-bbfd-d1d61d74ba69    cell   GO_0005623     cell   NIFSTD
+#> 3 8ddd9932-4e66-4a25-84af-237c0784cef4 On cell    nifext_32     Cell   NIFSTD
+#>   inferred acronym abbreviation synonyms definition
+#> 1    FALSE   FALSE        FALSE       NA         NA
+#> 2    FALSE   FALSE        FALSE       NA         NA
+#> 3    FALSE   FALSE        FALSE       NA         NA
 ```
 
 ## Lexical
@@ -205,14 +198,13 @@ out$result$publications %>%
 
 ```
 #> # A tibble: 5 x 3
-#>       pmid
-#> *    <chr>
-#> 1 12944235
-#> 2 27417120
-#> 3  8789268
-#> 4  2987169
-#> 5 15088773
-#> # ... with 2 more variables: journal <chr>, year <int>
+#>   pmid     journal                                                          year
+#>   <chr>    <chr>                                                           <int>
+#> 1 27417120 BioEssays : news and reviews in molecular, cellular and develo…  2017
+#> 2 12944235 Cytotherapy                                                      2003
+#> 3 31084436 Cellular reprogramming                                           2020
+#> 4 30785345 American journal of physiology. Lung cellular and molecular ph…  2019
+#> 5 31687085 Oxidative medicine and cellular longevity                        2020
 ```
 
 Get retractions
@@ -224,10 +216,10 @@ out[1:20]
 ```
 
 ```
-#>  [1] "12768027" "11167165" "22576713" "17973093" "10050223" "21613570"
-#>  [7] "12438313" "22364277" "26214776" "10784445" "17519423" "21177250"
-#> [13] "23745088" "26009721" "1824564"  "15260988" "20656892" "1400454" 
-#> [19] "12200953" "22893106"
+#>  [1] "30065046" "12768027" "11167165" "23439334" "21613570" "12438313"
+#>  [7] "26214776" "17519423" "23745088" "24145124" "26009721" "1824564" 
+#> [13] "25497757" "20656892" "12200953" "18252834" "26339438" "18444895"
+#> [19] "20175642" "23782032"
 ```
 
 Then get info on some articles
@@ -240,10 +232,10 @@ lapply(arts, "[[", "title")
 
 ```
 #> [[1]]
-#> [1] "Basic residues of the helix six domain of influenza virus M1 involved in nuclear translocation of M1 can be replaced by PTAP and YPDL late assembly domain motifs."
+#> [1] "OST1 Activation by the Brassinosteroid-Regulated Kinase CDG1-LIKE1 in Stomatal Closure."
 #> 
 #> [[2]]
-#> [1] "Point-of-care (POC) testing of lactate in the intensive care patient. Accuracy, reliability, and costs of different measurement systems."
+#> [1] "Basic residues of the helix six domain of influenza virus M1 involved in nuclear translocation of M1 can be replaced by PTAP and YPDL late assembly domain motifs."
 ```
 
 ## Data
@@ -270,27 +262,20 @@ head(out$result$results)
 ```
 
 ```
-#>   parentCategory      category                   db      indexable
-#> 1       Category    Expression Barres Brain RNA-Seq ExpressionData
-#> 2       Category          Gene Barres Brain RNA-Seq ExpressionData
-#> 3       Category          Cell Barres Brain RNA-Seq ExpressionData
-#> 4    Output Type Data or Model Barres Brain RNA-Seq ExpressionData
-#> 5       Category      Molecule        PubMed Health           Drug
-#> 6    Output Type   Information        PubMed Health           Drug
-#>          nifId count totalCount snippets
-#> 1 scr_013736-2     9      22458     NULL
-#> 2 scr_013736-2     9      22458     NULL
-#> 3 scr_013736-2     9      22458     NULL
-#> 4 scr_013736-2     9      22458     NULL
-#> 5  nlx_32805-3     2      19179     NULL
-#> 6  nlx_32805-3     2      19179     NULL
-#>                                summaryString
-#> 1 Barres Brain RNA-Seq: ExpressionData (9)[]
-#> 2 Barres Brain RNA-Seq: ExpressionData (9)[]
-#> 3 Barres Brain RNA-Seq: ExpressionData (9)[]
-#> 4 Barres Brain RNA-Seq: ExpressionData (9)[]
-#> 5                  PubMed Health: Drug (2)[]
-#> 6                  PubMed Health: Drug (2)[]
+#>   parentCategory      category                   db      indexable        nifId
+#> 1       Category          Gene Barres Brain RNA-Seq ExpressionData scr_013736-2
+#> 2    Output Type Data or Model Barres Brain RNA-Seq ExpressionData scr_013736-2
+#> 3       Category          Cell Barres Brain RNA-Seq ExpressionData scr_013736-2
+#> 4       Category    Expression Barres Brain RNA-Seq ExpressionData scr_013736-2
+#> 5    Output Type   Information        PubMed Health           Drug  nlx_32805-3
+#> 6       Category      Molecule        PubMed Health           Drug  nlx_32805-3
+#>   count totalCount snippets                              summaryString
+#> 1     9      22458     NULL Barres Brain RNA-Seq: ExpressionData (9)[]
+#> 2     9      22458     NULL Barres Brain RNA-Seq: ExpressionData (9)[]
+#> 3     9      22458     NULL Barres Brain RNA-Seq: ExpressionData (9)[]
+#> 4     9      22458     NULL Barres Brain RNA-Seq: ExpressionData (9)[]
+#> 5     2      20110     NULL                  PubMed Health: Drug (2)[]
+#> 6     2      20110     NULL                  PubMed Health: Drug (2)[]
 ```
 
 Get some data
@@ -303,31 +288,29 @@ out$result$result
 
 ```
 #> # A tibble: 20 x 12
-#>                                                   Gene
-#>                                                  <chr>
-#>  1                                tyrosine hydroxylase
-#>  2                              maternally expressed 3
-#>  3                       G protein-coupled receptor 37
-#>  4                               TANK-binding kinase 1
-#>  5                 zinc finger, ZZ domain containing 3
-#>  6                         deleted in azoospermia-like
-#>  7                                     forkhead box A2
-#>  8                         phospholipase A2, group IIF
-#>  9                                         homeobox C5
-#> 10                              GATA binding protein 4
-#> 11                             sal-like 4 (Drosophila)
-#> 12                   nitric oxide synthase 1, neuronal
-#> 13                          RIKEN cDNA C130073F10 gene
-#> 14                           choline acetyltransferase
-#> 15                                         cystatin 12
-#> 16 ash1 (absent, small, or homeotic)-like (Drosophila)
-#> 17                        neurogenic differentiation 4
-#> 18                         developing brain homeobox 2
-#> 19           zinc finger and SCAN domain containing 22
-#> 20                                      Nanog homeobox
-#> # ... with 11 more variables: Anatomical.Component <chr>,
-#> #   Assay.Type <chr>, Theiler.Stage <chr>, Tissue <chr>,
-#> #   Expression.Strength <chr>, Expression.Pattern <chr>,
+#>    Gene  Anatomical.Comp… Assay.Type Theiler.Stage Tissue Expression.Stre…
+#>    <chr> <chr>            <chr>      <chr>         <chr>  <chr>           
+#>  1 tyro… nerve of bladder IHC (Immu… TS28          bladd… strong          
+#>  2 mate… urogenital mese… ISH (In S… TS20          urina… unspecified     
+#>  3 G pr… ovary            ISH (In S… TS23          Not p… unspecified     
+#>  4 TANK… testis           ISH (In S… TS23          Not p… unspecified     
+#>  5 zinc… ureter           ISH (In S… TS23          Not p… unspecified     
+#>  6 dele… ovary            ISH (In S… TS27          ovary  strong          
+#>  7 fork… urinary system   ISH (In S… TS25          Not p… moderate        
+#>  8 phos… pelvis           ISH (In S… TS26          metan… strong          
+#>  9 home… testis           ISH (In S… TS22          testis moderate        
+#> 10 GATA… ovary            ISH (In S… TS23          Not p… unspecified     
+#> 11 sal-… testis           ISH (In S… TS23          Not p… unspecified     
+#> 12 nitr… nerve of bladder IHC (Immu… TS26          bladd… strong          
+#> 13 RIKE… metanephros      ISH (In S… TS26          metan… weak            
+#> 14 chol… pelvic ganglion  TG (trans… TS22          pelvi… strong          
+#> 15 cyst… oviduct          ISH (In S… TS27          ovary  moderate        
+#> 16 ash1… ureter           ISH (In S… TS23          Not p… unspecified     
+#> 17 neur… ureter           ISH (In S… TS23          Not p… unspecified     
+#> 18 deve… testis           ISH (In S… TS23          Not p… unspecified     
+#> 19 zinc… bladder          ISH (In S… TS23          Not p… unspecified     
+#> 20 Nano… ureter           ISH (In S… TS23          Not p… unspecified     
+#> # … with 6 more variables: Expression.Pattern <chr>,
 #> #   Expression.Pattern.Location <chr>, Authors <chr>, Notes <chr>,
 #> #   v_uuid <chr>, Source <chr>
 ```
